@@ -5,24 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="abcd2a3e-f48c-42ea-95b9-9721b6e915fa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Bootstrap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/About.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/Admin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/Dashboard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/Start.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/Reading.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/Station.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/about.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/admin.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/dashboard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/start.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/station.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/tags/listreadings.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/tags/menu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/Application.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/Application/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/Admin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/StationController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/admin.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/dependencies.yml" beforeDir="false" afterPath="$PROJECT_DIR$/conf/dependencies.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/station.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/conf/routes" beforeDir="false" afterPath="$PROJECT_DIR$/conf/routes" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weathertop.iws" beforeDir="false" afterPath="$PROJECT_DIR$/weathertop.iws" afterDir="false" />
     </list>
@@ -77,7 +65,7 @@
       <updated>1680719266201</updated>
       <workItem from="1680719268124" duration="175000" />
       <workItem from="1681144579803" duration="4118000" />
-      <workItem from="1681152707006" duration="8607000" />
+      <workItem from="1681152707006" duration="13384000" />
     </task>
     <servers />
   </component>
