@@ -1,11 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="abcd2a3e-f48c-42ea-95b9-9721b6e915fa" name="Changes" comment="" />
+    <list default="true" id="abcd2a3e-f48c-42ea-95b9-9721b6e915fa" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Bootstrap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/About.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/Admin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/Dashboard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/Start.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/Reading.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/Station.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/about.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/admin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/dashboard.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/start.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/station.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/tags/listreadings.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/tags/menu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/Application.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/Application/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/dependencies.yml" beforeDir="false" afterPath="$PROJECT_DIR$/conf/dependencies.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/routes" beforeDir="false" afterPath="$PROJECT_DIR$/conf/routes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weathertop.iws" beforeDir="false" afterPath="$PROJECT_DIR$/weathertop.iws" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -18,17 +50,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -38,6 +76,8 @@
       <option name="presentableId" value="Default" />
       <updated>1680719266201</updated>
       <workItem from="1680719268124" duration="175000" />
+      <workItem from="1681144579803" duration="4118000" />
+      <workItem from="1681152707006" duration="8607000" />
     </task>
     <servers />
   </component>
