@@ -3,11 +3,11 @@
 
 #{menu id:"dashboard"/}
 
-#{list items:stations, as:'station'}
+#{list items:stations, as:'s'}
 <div class="content box">
     <h1 class="title">
-        ${station.name}
+        ${s.name}
     </h1>
-    #{listreadings station:station/}
+    #{listreadings station:s/}
 </div>
 #{/list}
