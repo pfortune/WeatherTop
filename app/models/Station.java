@@ -20,8 +20,13 @@ public class Station extends Model {
     public String latestWeatherDescription;
     @Transient
     public double latestTemperatureFahrenheit;
+
     @Transient
-    public String latestWindBeaufort;
+    public double latestTemperatureCelcius;
+    @Transient
+    public int latestWindBeaufort;
+    @Transient
+    public int latestPressure;
 
     public Station(String name) {
         this.name = name;

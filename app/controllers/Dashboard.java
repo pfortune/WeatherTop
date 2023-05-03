@@ -22,11 +22,12 @@ public class Dashboard extends Controller
                 String weatherDescription = Conversion.weatherCodeToCondition(latestReading.code);
                 double temperatureFahrenheit = Conversion.celsiusToFahrenheit(latestReading.temperature);
                 int windBeaufort = Conversion.kmhToBeaufort(latestReading.windSpeed);
-                String beaufortDescription = Conversion.beaufortDescription(windBeaufort);
 
                 station.latestWeatherDescription = weatherDescription;
                 station.latestTemperatureFahrenheit = temperatureFahrenheit;
-                station.latestWindBeaufort = beaufortDescription;
+                station.latestTemperatureCelcius = latestReading.temperature;
+                station.latestWindBeaufort = windBeaufort;
+                station.latestPressure = latestReading.pressure;
             }
         }
 
