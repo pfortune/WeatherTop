@@ -20,7 +20,6 @@ public class Station extends Model {
     public String latestWeatherDescription;
     @Transient
     public double latestTemperatureFahrenheit;
-
     @Transient
     public double latestTemperatureCelcius;
     @Transient
