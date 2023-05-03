@@ -66,7 +66,7 @@ public class Conversion {
      * @param weatherCode Weather code value (100 - 800)
      * @return Description of the Weather code value
      */
-    public static String weatherCondition(int code) {
+    public static String weatherCodeToCondition(int code) {
         switch (code) {
             case 100: return "Clear";
             case 200: return "Partial clouds";
