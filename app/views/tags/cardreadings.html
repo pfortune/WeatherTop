@@ -1,0 +1,66 @@
+#{if _station.readings.size() > 0}
+<div class="columns">
+  <div class="column">
+    <article class="message has-background-black">
+      <div class="message-header has-background-black">
+        Location
+      </div>
+      <div class="message-body has-text-white">
+        ${_station.name}
+      </div>
+    </article>
+  </div>
+  <div class="column">
+    <article class="message has-background-black">
+      <div class="message-header has-background-black">
+        Weather
+      </div>
+      <div class="message-body has-text-white">
+        <p>
+          ${_station.readings[0].code}
+        </p>
+      </div>
+    </article>
+  </div>
+  <div class="column">
+    <article class="message has-background-black">
+      <div class="message-header has-background-black">
+        Temperature
+      </div>
+      <div class="message-body has-text-white">
+        <p>
+          ${_station.readings[0].temperature}
+        </p>
+      </div>
+    </article>
+  </div>
+  <div class="column">
+    <article class="message has-background-black">
+      <div class="message-header has-background-black">
+        Wind
+      </div>
+      <div class="message-body has-text-white">
+        <p>
+          ${_station.readings[0].windSpeed} (km/h)
+        </p>
+      </div>
+    </article>
+  </div>
+  <div class="column">
+    <article class="message has-background-black">
+      <div class="message-header has-background-black">
+        Pressure
+      </div>
+      <div class="message-body has-text-white">
+        <p>
+          ${_station.readings[0].pressure}
+        </p>
+      </div>
+    </article>
+  </div>
+</div>
+#{/if}
+
+#{else}
+<p>No readings have been found!</p>
+#{/else}
