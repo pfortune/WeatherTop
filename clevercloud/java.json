@@ -1,0 +1,6 @@
+{
+  "jdkVersion": "11",
+  "deploy": {
+    "goal": "play1"
+  }
+}

@@ -80,8 +80,6 @@ public class Conversion {
         return Math.round(value * 100.0) / 100.0;
     }
 
-
-
     /**
      * Returns the desscription corresponding to a Weather code.
      *
