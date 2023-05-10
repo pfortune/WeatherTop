@@ -60,7 +60,7 @@ public class Conversion {
         return "Invalid Beaufort value";
     }
 
-    public static String windDirectionToCompass(int windDirection) {
+    public static String windDirectionToCompass(double windDirection) {
         String[] compassDirections = {
                 "N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE",
                 "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW", "N"
