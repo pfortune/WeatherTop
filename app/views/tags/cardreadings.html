@@ -17,7 +17,7 @@
       </div>
       <div class="message-body has-text-white">
         <p>
-          ${_station.latestWeatherDescription}
+          ${_station.getLatestWeatherDescription()}
         </p>
       </div>
     </article>
@@ -29,9 +29,9 @@
       </div>
       <div class="message-body has-text-white">
         <p>
-          ${_station.latestTemperatureCelcius} °C
-        <br>
-          ${_station.latestTemperatureFahrenheit} °F
+          ${_station.getLatestTemperatureCelcius()} °C
+          <br>
+          ${_station.getLatestTemperatureFahrenheit()} °F
         </p>
       </div>
     </article>
@@ -43,7 +43,7 @@
       </div>
       <div class="message-body has-text-white">
         <p>
-          ${_station.latestWindBeaufort} bft
+          ${_station.getLatestWindBeaufort()} bft
         </p>
       </div>
     </article>
@@ -55,7 +55,7 @@
       </div>
       <div class="message-body has-text-white">
         <p>
-          ${_station.latestPressure} hpa
+          ${_station.getLatestPressure()} hpa
         </p>
       </div>
     </article>

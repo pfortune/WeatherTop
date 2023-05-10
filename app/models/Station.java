@@ -6,9 +6,9 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
-import javax.persistence.Transient;
 
 import play.db.jpa.Model;
+import utils.Conversion;
 
 @Entity
 public class Station extends Model {
@@ -16,22 +16,35 @@ public class Station extends Model {
     @OneToMany(cascade = CascadeType.ALL)
     public List<Reading> readings = new ArrayList<Reading>();
 
-    @Transient
-    public String latestWeatherDescription;
-    @Transient
-    public double latestTemperatureFahrenheit;
-    @Transient
-    public double latestTemperatureCelcius;
-    @Transient
-    public int latestWindBeaufort;
-    @Transient
-    public int latestPressure;
-
     public Station(String name) {
         this.name = name;
     }
 
+    public Station() {
+
+    }
+
     public Reading getLatestReading() {
         return readings.get(readings.size() - 1);
+    }
+
+    public String getLatestWeatherDescription() {
+        return Conversion.weatherCodeToCondition(getLatestReading().code);
+    }
+
+    public double getLatestTemperatureFahrenheit() {
+        return Conversion.celsiusToFahrenheit(getLatestReading().temperature);
+    }
+
+    public double getLatestTemperatureCelcius() {
+        return getLatestReading().temperature;
+    }
+
+    public int getLatestWindBeaufort() {
+        return Conversion.kmhToBeaufort(getLatestReading().windSpeed);
+    }
+
+    public int getLatestPressure() {
+        return getLatestReading().pressure;
     }
 }
