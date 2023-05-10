@@ -60,14 +60,30 @@ public class Conversion {
         return "Invalid Beaufort value";
     }
 
+    public static String windDirectionToCompass(int windDirection) {
+        String[] compassDirections = {
+                "N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE",
+                "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW", "N"
+        };
+
+        double degreeRange = 360.0 / (compassDirections.length - 1);
+        int index = (int) Math.round((windDirection % 360) / degreeRange);
+        return compassDirections[index];
+    }
+
+    public static double calculateWindChill(double temperature, double windSpeed) {
+        return 13.12 + 0.6215 * temperature - 11.37 * Math.pow(windSpeed, 0.16) + 0.3965 * temperature * Math.pow(windSpeed, 0.16);
+    }
+
+
     /**
      * Returns the desscription corresponding to a Weather code.
      *
      * @param weatherCode Weather code value (100 - 800)
      * @return Description of the Weather code value
      */
-    public static String weatherCodeToCondition(int code) {
-        switch (code) {
+    public static String weatherCodeToCondition(int weatherCode) {
+        switch (weatherCode) {
             case 100: return "Clear";
             case 200: return "Partial clouds";
             case 300: return "Cloudy";

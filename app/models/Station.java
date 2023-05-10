@@ -47,4 +47,13 @@ public class Station extends Model {
     public int getLatestPressure() {
         return getLatestReading().pressure;
     }
+
+    public String getLatestWindDirectionCompass() {
+        return Conversion.windDirectionToCompass(getLatestReading().windDirection);
+    }
+
+    public double getLatestWindChill() {
+        return Conversion.calculateWindChill(getLatestReading().temperature, getLatestReading().windSpeed);
+    }
+
 }
