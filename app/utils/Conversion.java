@@ -62,9 +62,10 @@ public class Conversion {
 
     public static String windDirectionToCompass(double windDirection) {
         String[] compassDirections = {
-                "N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE",
-                "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW", "N"
+                "North", "North Northeast", "Northeast", "East Northeast", "East", "East Southeast", "Southeast", "South Southeast",
+                "South", "South Southwest", "Southwest", "West Southwest", "West", "West Northwest", "Northwest", "North Northwest", "North"
         };
+
 
         double degreeRange = 360.0 / (compassDirections.length - 1);
         int index = (int) Math.round((windDirection % 360) / degreeRange);
@@ -72,8 +73,13 @@ public class Conversion {
     }
 
     public static double calculateWindChill(double temperature, double windSpeed) {
-        return 13.12 + 0.6215 * temperature - 11.37 * Math.pow(windSpeed, 0.16) + 0.3965 * temperature * Math.pow(windSpeed, 0.16);
+        return roundToTwoDecimalPlaces(13.12 + 0.6215 * temperature - 11.37 * Math.pow(windSpeed, 0.16) + 0.3965 * temperature * Math.pow(windSpeed, 0.16));
     }
+
+    public static double roundToTwoDecimalPlaces(double value) {
+        return Math.round(value * 100.0) / 100.0;
+    }
+
 
 
     /**
