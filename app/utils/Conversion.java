@@ -73,8 +73,14 @@ public class Conversion {
     }
 
     public static double calculateWindChill(double temperature, double windSpeed) {
-        return roundToTwoDecimalPlaces(13.12 + 0.6215 * temperature - 11.37 * Math.pow(windSpeed, 0.16) + 0.3965 * temperature * Math.pow(windSpeed, 0.16));
+        return roundToTwoDecimalPlaces(
+                13.12
+                        + (0.6215 * temperature)
+                        - (11.37 * Math.pow(windSpeed, 0.16))
+                        + (0.3965 * temperature * Math.pow(windSpeed, 0.16))
+        );
     }
+
 
     public static double roundToTwoDecimalPlaces(double value) {
         return Math.round(value * 100.0) / 100.0;
