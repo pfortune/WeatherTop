@@ -14,8 +14,14 @@ public class Dashboard extends Controller
     }
 
     public static void addStation(String title){
-        Station station = new Station(title);
-        station.save();
-        redirect("/dashboard");
+        if(title == null || title.trim().isEmpty()) {
+            flash("error", "Station name cannot be empty");
+            redirect("/dashboard");
+        } else {
+            Station station = new Station(title);
+            station.save();
+            flash("success", "Station added successfully");
+            redirect("/dashboard");
+        }
     }
 }

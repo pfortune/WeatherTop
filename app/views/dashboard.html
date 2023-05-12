@@ -16,6 +16,18 @@
 </div>
 #{/list}
 
+#{if flash.success}
+<div class="notification is-success">
+    ${flash.success}
+</div>
+#{/if}
+
+#{if flash.error}
+<div class="notification is-danger">
+    ${flash.error}
+</div>
+#{/if}
+
 <form class="box" action="/dashboard/add" method="POST">
     <div class="field">
         <label class="label">Title</label>
