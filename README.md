@@ -30,7 +30,7 @@ When a station is opened, the current conditions and readings appear. The applic
 2. Clone this repository to your local machine.
 3. Navigate to the root directory of the project in your terminal.
 4. Run `play run` to start the application.
-5. Access the application on your browser at `http://localhost:9000`.
+5. Access the application on your browser at `http://localhost:8080`.
 
 ## Usage
 
