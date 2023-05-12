@@ -1,4 +1,5 @@
 package controllers;
+import java.util.List;
 
 import models.Reading;
 import models.Station;
@@ -20,7 +21,7 @@ public class StationController extends Controller {
     public static void addReading(Long id, int code, double temperature, double windSpeed, int pressure, int windDirection) {
         Station station = Station.findById(id);
         if (station != null) {
-            if(code == 0 || temperature == 0.0 || windSpeed == 0.0 || pressure == 0 || windDirection == 0) {
+            if(code == 0) {
                 flash("error", "Reading fields cannot be empty");
             } else {
                 Reading reading = new Reading(code, temperature, windSpeed, pressure, windDirection);
