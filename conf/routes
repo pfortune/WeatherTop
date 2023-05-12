@@ -5,7 +5,10 @@
 # Home page
 GET     /                                       Start.index
 GET     /dashboard                              Dashboard.index
+POST    /dashboard/add                          Dashboard.addStation
 GET     /about                                  About.index
+GET     /station/{id}                           StationController.index
+POST    /station/{id}/add                       StationController.addReading
 
 GET     /favicon.ico                            staticDir:public/images:favicon.ico
 

@@ -8,7 +8,18 @@
     <h1 class="title">
         ${s.name}
     </h1>
-    #{cardreadings station:s/}
-    #{listreadings station:s/}
+    <p>
+        <span class="icon">
+          <a href="/station/${s.id}"><i class="fa-solid fa-folder-open"></i></a></i>
+        </span>
+    </p>
 </div>
 #{/list}
+
+<form class="box" action="/dashboard/add" method="POST">
+    <div class="field">
+        <label class="label">Title</label>
+        <input class="input is small" placeholder="Title" type="text" name="title">
+    </div>
+    <button class="button is-link is-info">Add Station</button>
+</form>

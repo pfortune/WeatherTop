@@ -12,4 +12,10 @@ public class Dashboard extends Controller
         List<Station> stations = Station.findAll();
         render("dashboard.html", stations);
     }
+
+    public static void addStation(String title){
+        Station station = new Station(title);
+        station.save();
+        redirect("/dashboard");
+    }
 }
