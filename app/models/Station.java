@@ -7,13 +7,18 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
+import play.data.validation.Required;
+
 import play.db.jpa.Model;
 import utils.Conversion;
 
 @Entity
 public class Station extends Model {
+    @Required
     public String name;
+    @Required
     public double latitude;
+    @Required
     public double longitude;
     @OneToMany(cascade = CascadeType.ALL)
     public List<Reading> readings = new ArrayList<Reading>();

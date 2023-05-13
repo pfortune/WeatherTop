@@ -17,6 +17,12 @@ public class Dashboard extends Controller
         if(title == null || title.trim().isEmpty()) {
             flash("error", "Station name cannot be empty");
             redirect("/dashboard");
+        } else if(latitude < -90 || latitude > 90) {
+            flash("error", "Invalid latitude. Please enter a value between -90 and 90.");
+            redirect("/dashboard");
+        } else if(longitude < -180 || longitude > 180) {
+            flash("error", "Invalid longitude. Please enter a value between -180 and 180.");
+            redirect("/dashboard");
         } else {
             Station station = new Station(title, latitude, longitude);
             station.save();
