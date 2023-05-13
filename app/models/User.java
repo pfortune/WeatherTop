@@ -48,8 +48,18 @@ public class User extends Model {
         return find("email", email).first();
     }
 
-    public void setPassword(String password) {
-        this.password = BCrypt.hashpw(password, BCrypt.gensalt());
+    public boolean setPassword(String password) {
+        if (isValidPassword(password)) {
+            this.password = BCrypt.hashpw(password, BCrypt.gensalt());
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean isValidPassword(String password) {
+        // check if password is at least 8 characters long, has numbers, and both upper and lowercase letters
+        return password.matches("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}");
     }
 
     public boolean checkPassword(String password) {
