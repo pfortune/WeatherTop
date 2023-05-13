@@ -53,6 +53,14 @@ public class User extends Model {
     }
 
     public boolean checkPassword(String password) {
-        return BCrypt.checkpw(password, this.password);
+        if(BCrypt.checkpw(password, this.password)) {
+            return true;
+        } else if (this.password.equals(password)) {
+            this.password = BCrypt.hashpw(password, BCrypt.gensalt());
+            this.save();
+            return true;
+        } else {
+            return false;
+        }
     }
 }
