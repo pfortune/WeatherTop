@@ -13,12 +13,12 @@ public class Dashboard extends Controller
         render("dashboard.html", stations);
     }
 
-    public static void addStation(String title){
+    public static void addStation(String title, double latitude, double longitude){
         if(title == null || title.trim().isEmpty()) {
             flash("error", "Station name cannot be empty");
             redirect("/dashboard");
         } else {
-            Station station = new Station(title);
+            Station station = new Station(title, latitude, longitude);
             station.save();
             flash("success", "Station added successfully");
             redirect("/dashboard");

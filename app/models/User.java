@@ -1,17 +1,22 @@
 package models;
 
 import play.db.jpa.Model;
-import javax.persistence.CascadeType;
+
+import javax.persistence.Table;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
 import javax.persistence.Column;
+import javax.persistence.OneToMany;
+import javax.persistence.CascadeType;
+
 import play.data.validation.Email;
 import play.data.validation.Required;
+
 import org.mindrot.jbcrypt.BCrypt;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name = "users")
 public class User extends Model {
     @Required
     public String firstname;
