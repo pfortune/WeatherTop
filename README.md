@@ -34,8 +34,9 @@ The station report now includes maximum and minimum values for temperature, wind
 1. Ensure that you have Play 1.6 and Java installed on your system.
 2. Clone this repository to your local machine.
 3. Navigate to the root directory of the project in your terminal.
-4. Run `play run` to start the application.
-5. Access the application on your browser at `http://localhost:8080`.
+4. Run `play dependencies` to download any dependencies.
+5. Run `play run` to start the application.
+6. Access the application on your browser at `http://localhost:8080`.
 
 ## Usage
 
