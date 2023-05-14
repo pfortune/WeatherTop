@@ -4,15 +4,22 @@ import java.util.List;
 
 import models.Station;
 
+import models.User;
 import play.mvc.Controller;
 
 public class Dashboard extends Controller
 {
     public static void index() {
-        if(session.get("logged_in_userid") == null) {
+
+        String user = session.get("logged_in_userid");
+
+        if(user == null) {
             redirect("/login");
         }
-        List<Station> stations = Station.findAll();
+
+        Long userID = Long.parseLong(user);
+
+        List<Station> stations = Station.find("byUser_id", userID).fetch();
         render("dashboard.html", stations);
     }
 
@@ -27,7 +34,10 @@ public class Dashboard extends Controller
             flash("error", "Invalid longitude. Please enter a value between -180 and 180.");
             redirect("/dashboard");
         } else {
-            Station station = new Station(title, latitude, longitude);
+            Long userID = Long.parseLong(session.get("logged_in_userid"));
+            User user = User.findById(userID);
+
+            Station station = new Station(title, latitude, longitude, user);
             station.save();
             flash("success", "Station added successfully");
             redirect("/dashboard");

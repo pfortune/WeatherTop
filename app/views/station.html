@@ -39,25 +39,25 @@
     <div class="field column is-full-mobile is-one-fifth-desktop">
       <label class="label">Temperature</label>
       <div class="control">
-        <input type="number" step="any" class="input" placeholder="Temperature" name="temperature">
+        <input type="number" step="any" class="input" min="-50" max="50" placeholder="Temperature" name="temperature">
       </div>
     </div>
     <div class="field column is-full-mobile is-one-fifth-desktop">
       <label class="label">Wind Speed</label>
       <div class="control">
-        <input type="number" step="any" class="input" placeholder="Wind Speed" name="windSpeed">
+        <input type="number" step="any" class="input" min="0" max="117" placeholder="Wind Speed" name="windSpeed">
       </div>
     </div>
     <div class="field column is-full-mobile is-one-fifth-desktop">
       <label class="label">Wind Direction</label>
       <div class="control">
-        <input type="number" step="any" class="input" placeholder="Wind Direction" name="windDirection">
+        <input type="number" step="any" class="input" min="0" max="360" placeholder="Wind Direction" name="windDirection">
       </div>
     </div>
     <div class="field column is-full-mobile is-one-fifth-desktop">
       <label class="label">Pressure</label>
       <div class="control">
-        <input type="number" class="input" placeholder="Pressure" name="pressure">
+        <input type="number" class="input" min="100" max="1050" placeholder="Pressure" name="pressure">
       </div>
     </div>
   </div>
