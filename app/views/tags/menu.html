@@ -1,8 +1,14 @@
 <nav class="navbar is-info is-inverted">
   <div class="navbar-brand">
     <a id="start" class="navbar-item" href="/"> Home </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasic">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
   </div>
-  <div class="navbar-menu">
+  <div id="navbarBasic" class="navbar-menu">
     <div class="navbar-end">
       <a id="dashboard" class="navbar-item" href="/dashboard">Dashboard</a>
       <a id="about" class="navbar-item" href="/about">About </a>
@@ -11,5 +17,14 @@
 </nav>
 
 <script>
+  $(document).ready(function() {
+    // Check for click events on the navbar burger icon
+    $(".navbar-burger").click(function() {
+      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+      $(".navbar-burger").toggleClass("is-active");
+      $(".navbar-menu").toggleClass("is-active");
+    });
+  });
+
   $("#${_id}").addClass("has-background-black has-text-white");
 </script>
