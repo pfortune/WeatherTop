@@ -10,17 +10,24 @@
 </div>
 #{/if}
 
+#{if flash.success}
+<div class="notification is-success">
+    ${flash.success}
+</div>
+#{/if}
+
+
 <form class="box" action="/dashboard/add" method="POST">
     <div class="columns is-multiline is-mobile">
-        <div class="field column is-full-mobile is-3-desktop">
+        <div class="field column is-full-mobile is-4-desktop">
             <label class="label">Title</label>
             <input class="input is small" placeholder="Title" type="text" name="title">
         </div>
-        <div class="field column is-full-mobile is-3-desktop">
+        <div class="field column is-full-mobile is-4-desktop">
             <label class="label">Latitude</label>
             <input class="input is small" placeholder="Latitude" type="number" step="any" name="latitude" required>
         </div>
-        <div class="field column is-full-mobile is-3-desktop">
+        <div class="field column is-full-mobile is-4-desktop">
             <label class="label">Longitude</label>
             <input class="input is small" placeholder="Longitude" type="number" step="any" name="longitude" required>
         </div>
@@ -45,9 +52,3 @@
     </p>
 </div>
 #{/list}
-
-#{if flash.success}
-<div class="notification is-success">
-    ${flash.success}
-</div>
-#{/if}
