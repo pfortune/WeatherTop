@@ -9,6 +9,9 @@ import play.mvc.Controller;
 public class Dashboard extends Controller
 {
     public static void index() {
+        if(session.get("logged_in_userid") != null) {
+            redirect("/dashboard");
+        }
         List<Station> stations = Station.findAll();
         render("dashboard.html", stations);
     }
