@@ -70,4 +70,89 @@ public class Station extends Model {
         return Conversion.calculateWindChill(getLatestReading().temperature, getLatestReading().windSpeed);
     }
 
+    public double getMaxTemperature() {
+        if (readings.size() > 0) {
+            double maxTemp = readings.get(0).temperature;
+            for (Reading currentReading : readings) {
+                if (currentReading.temperature > maxTemp) {
+                    maxTemp = currentReading.temperature;
+                }
+            }
+            return maxTemp;
+        } else {
+            return 0;
+        }
+    }
+
+    public double getMinTemperature() {
+        if (readings.size() > 0) {
+            double minTemp = readings.get(0).temperature;
+            for (Reading currentReading : readings) {
+                if (currentReading.temperature < minTemp) {
+                    minTemp = currentReading.temperature;
+                }
+            }
+            return minTemp;
+        } else {
+            return 0;
+        }
+    }
+
+    public double getMaxWindSpeed() {
+        if (readings.size() > 0) {
+            double maxWind = readings.get(0).windSpeed;
+            for (Reading currentReading : readings) {
+                if (currentReading.windSpeed > maxWind) {
+                    maxWind = currentReading.windSpeed;
+                }
+            }
+            return maxWind;
+        } else {
+            return 0;
+        }
+    }
+
+    public double getMinWindSpeed() {
+        if (readings.size() > 0) {
+            double minWind = readings.get(0).windSpeed;
+            for (Reading currentReading : readings) {
+                if (currentReading.windSpeed < minWind) {
+                    minWind = currentReading.windSpeed;
+                }
+            }
+            return minWind;
+        } else {
+            return 0;
+        }
+    }
+
+    public double getMaxPressure() {
+        if (readings.size() > 0) {
+            double maxPressure = readings.get(0).pressure;
+            for (Reading currentReading : readings) {
+                if (currentReading.pressure > maxPressure) {
+                    maxPressure = currentReading.pressure;
+                }
+            }
+            return maxPressure;
+        } else {
+            return 0;
+        }
+    }
+
+    public double getMinPressure() {
+        if (readings.size() > 0) {
+            double minPressure = readings.get(0).pressure;
+            for (Reading currentReading : readings) {
+                if (currentReading.pressure < minPressure) {
+                    minPressure = currentReading.pressure;
+                }
+            }
+            return minPressure;
+        } else {
+            return 0;
+        }
+    }
+
+
 }
