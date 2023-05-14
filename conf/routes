@@ -9,6 +9,8 @@ POST    /dashboard/add                          Dashboard.addStation
 GET     /about                                  About.index
 GET     /station/{id}                           StationController.index
 POST    /station/{id}/add                       StationController.addReading
+GET     /register                               AuthController.register
+GET     /login                                  AuthController.login
 
 GET     /favicon.ico                            staticDir:public/images:favicon.ico
 
