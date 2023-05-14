@@ -4,6 +4,7 @@ import java.util.List;
 
 import models.User;
 
+import play.Logger;
 import play.mvc.Controller;
 public class AuthController extends Controller {
     public static void register() {
@@ -31,6 +32,7 @@ public class AuthController extends Controller {
         } else {
             User user = new User(firstname, lastname, email, password);
             user.save();
+            session.put("logged_in_userid", user.id);
             flash("success", "Welcome, " + user.firstname);
             redirect("/dashboard");
         }
@@ -41,7 +43,8 @@ public class AuthController extends Controller {
         if (user == null) {
             flash("error", "Invalid email or password");
             redirect("/login");
-        } else if (user.checkPassword(password)) {  // change this line
+        } else if (user.checkPassword(password)) {
+            Logger.info("Authentication successful");
             session.put("logged_in_userid", user.id);
             flash("success", "Welcome back, " + user.firstname);
             redirect("/dashboard");

@@ -4,11 +4,21 @@
 
 # Home page
 GET     /                                       Start.index
+
+# About page
+GET     /about                                  About.index
+
+# Dashboard
 GET     /dashboard                              Dashboard.index
 POST    /dashboard/add                          Dashboard.addStation
-GET     /about                                  About.index
+
+# Station
 GET     /station/{id}                           StationController.index
 POST    /station/{id}/add                       StationController.addReading
+
+# Authentication
+GET     /login                                  AuthController.login
+GET     /register                               AuthController.register
 POST    /register                               AuthController.registerUser
 POST    /authenticate                           AuthController.authenticate
 GET     /logout                                 AuthController.logout
