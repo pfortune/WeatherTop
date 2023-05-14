@@ -36,6 +36,11 @@ public class AuthController extends Controller {
             flash("error", "Password cannot be empty");
             redirect("/register");
         } else {
+            User existingUser = User.findByEmail(email);
+            if (existingUser != null) {
+                flash("error", "This email is already in use. Please use a different email.");
+                redirect("/register");
+            }
             User user = new User(firstname, lastname, email, password);
             user.save();
             session.put("logged_in_userid", user.id);

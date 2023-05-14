@@ -31,4 +31,5 @@ GET     /favicon.ico                            staticDir:public/images:favicon.
 GET     /public/                                staticDir:public
 
 # Catch all
-*       /{controller}/{action}                  {controller}.{action}
+*       /{controller}/{action}                  NotFound
+

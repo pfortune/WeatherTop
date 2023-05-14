@@ -9,11 +9,11 @@ import play.mvc.Controller;
 public class StationController extends Controller {
 
     public static void index(){
-        notFound("The page you're looking for doesn't exist.");
+        redirect("/login");
     }
     public static void viewStation(Long id) {
         if(session.get("logged_in_userid") == null) {
-            redirect("/");
+            redirect("/login");
         }
 
         Station station = Station.findById(id);
