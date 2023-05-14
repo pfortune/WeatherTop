@@ -7,7 +7,11 @@ import models.Station;
 import play.mvc.Controller;
 
 public class StationController extends Controller {
-    public static void index(Long id) {
+
+    public static void index(){
+        notFound("The page you're looking for doesn't exist.");
+    }
+    public static void viewStation(Long id) {
         if(session.get("logged_in_userid") == null) {
             redirect("/");
         }

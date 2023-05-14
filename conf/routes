@@ -13,8 +13,10 @@ GET     /dashboard                              Dashboard.index
 POST    /dashboard/add                          Dashboard.addStation
 
 # Station
-GET     /station/{id}                           StationController.index
+GET     /station/{id}                           StationController.viewStation
 POST    /station/{id}/add                       StationController.addReading
+GET     /station                                StationController.index
+
 
 # Authentication
 GET     /login                                  AuthController.login
