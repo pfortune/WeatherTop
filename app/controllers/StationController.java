@@ -8,8 +8,8 @@ import play.mvc.Controller;
 
 public class StationController extends Controller {
     public static void index(Long id) {
-        if(session.get("logged_in_userid") != null) {
-            redirect("/dashboard");
+        if(session.get("logged_in_userid") == null) {
+            redirect("/");
         }
 
         Station station = Station.findById(id);
