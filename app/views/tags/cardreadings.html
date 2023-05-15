@@ -35,12 +35,11 @@
           <br>
           ${_station.getLatestTemperatureFahrenheit()} °F
         </p>
-        <div class="message-body has-text-white">
-          <p>
-            ${_station.getMinTemperature()} °C <i class="fa-regular fa-temperature-arrow-down"></i>
-            <br>
-            ${_station.getMaxTemperature()} °C <i class="fa-regular fa-temperature-arrow-up"></i>
-          </p>
+        <p>
+          ${_station.getMinTemperature()} °C <i class="fa-solid fa-temperature-arrow-down"></i>
+          <br>
+          ${_station.getMaxTemperature()} °C <i class="fa-solid fa-temperature-arrow-up"></i>
+        </p>
       </div>
     </article>
   </div>
@@ -55,7 +54,11 @@
           ${_station.getLatestWindDirectionCompass()} <br>
           Feels Like<br>
           ${_station.getLatestWindChill()} °C<br>
-
+        </p>
+        <p>
+          ${_station.getMinWindSpeed()} bft <i class="fa-solid fa-arrow-down-short-wide"></i>
+          <br>
+          ${_station.getMaxWindSpeed()} bft <i class="fa-solid fa-arrow-up-short-wide"></i>
         </p>
       </div>
     </article>
@@ -68,6 +71,11 @@
       <div class="message-body has-text-white">
         <p>
           ${_station.getLatestPressure()} hpa
+        </p>
+        <p>
+          ${_station.getMinPressure()} hpa <i class="fa-solid fa-arrow-down-short-wide"></i>
+          <br>
+          ${_station.getMaxPressure()} hpa <i class="fa-solid fa-arrow-up-short-wide"></i>
         </p>
       </div>
     </article>
