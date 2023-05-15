@@ -87,7 +87,7 @@ public class Conversion {
     }
 
     /**
-     * Returns the desscription corresponding to a Weather code.
+     * Returns the description corresponding to a Weather code.
      *
      * @param weatherCode Weather code value (100 - 800)
      * @return Description of the Weather code value

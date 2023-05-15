@@ -1,11 +1,9 @@
 package controllers;
 
-import java.util.List;
-
 import models.User;
-
 import play.Logger;
 import play.mvc.Controller;
+
 public class AuthController extends Controller {
     public static void register() {
         if(session.get("logged_in_userid") != null) {

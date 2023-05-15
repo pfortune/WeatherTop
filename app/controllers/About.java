@@ -1,9 +1,6 @@
 package controllers;
 
-import play.*;
-import play.mvc.*;
-import java.util.*;
-import models.*;
+import play.mvc.Controller;
 
 public class About extends Controller
 {

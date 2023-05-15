@@ -1,9 +1,7 @@
 package controllers;
 
 import java.util.List;
-
 import models.Station;
-
 import models.User;
 import play.mvc.Controller;
 
