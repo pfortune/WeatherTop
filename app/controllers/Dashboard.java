@@ -10,16 +10,12 @@ import play.mvc.Controller;
 public class Dashboard extends Controller
 {
     public static void index() {
-
-        String user = session.get("logged_in_userid");
-
+        User user = AuthController.getLoggedInUser();
         if(user == null) {
             redirect("/login");
         }
 
-        Long userID = Long.parseLong(user);
-
-        List<Station> stations = Station.find("byUser_id", userID).fetch();
+        List<Station> stations = user.stations;
         render("dashboard.html", stations);
     }
 
@@ -34,13 +30,18 @@ public class Dashboard extends Controller
             flash("error", "Invalid longitude. Please enter a value between -180 and 180.");
             redirect("/dashboard");
         } else {
-            Long userID = Long.parseLong(session.get("logged_in_userid"));
-            User user = User.findById(userID);
-
-            Station station = new Station(title, latitude, longitude, user);
-            station.save();
-            flash("success", "Station added successfully");
-            redirect("/dashboard");
+            User user = AuthController.getLoggedInUser();
+            if(user == null) {
+                flash("error", "You do not have permission to add a station");
+                redirect("/dashboard");
+            } else {
+                Station station = new Station(title, latitude, longitude);
+                user.stations.add(station);
+                user.save();
+                flash("success", "Station added successfully");
+                redirect("/dashboard");
+            }
         }
     }
+
 }

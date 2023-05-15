@@ -13,38 +13,26 @@ public class StationController extends Controller {
         redirect("/login");
     }
     public static void viewStation(Long id) {
-        if(session.get("logged_in_userid") == null) {
-            redirect("/login");
-        }
+        User user = AuthController.getLoggedInUser();
+        if(user != null) {
+            Station station = Station.findById(id);
+            boolean isUserStation = user.stations.contains(station);
 
-        Station station = Station.findById(id);
-        if (station != null && station.user != null) {
-            String userID = session.get("logged_in_userid");
-            Long user = Long.parseLong(userID);
-            if(!station.user.id.equals(user)) {
+            if (isUserStation) {
+                render("station.html", station);
+            } else {
                 flash("error", "You do not have permission to view this station");
                 redirect("/dashboard");
             }
-            render("station.html", station);
         } else {
-            flash("error", "You do not have permission to view this station");
-            redirect("/dashboard");
+            redirect("/login");
         }
     }
-
-
 
     public static void addReading(Long id, int code, double temperature, double windSpeed, int pressure, int windDirection) {
         Station station = Station.findById(id);
         if (station != null) {
-            String userID = session.get("logged_in_userid");
-            Long user = Long.parseLong(userID);
-            if(!station.user.id.equals(user)) {
-                flash("error", "You do not have permission to access this station");
-                redirect("/dashboard");
-            }
-
-            if(code == 0) {
+            if(code == 0 || temperature == 0.0 || windSpeed == 0.0 || pressure == 0 || windDirection == 0) {
                 flash("error", "Reading fields cannot be empty");
             } else {
                 Reading reading = new Reading(code, temperature, windSpeed, pressure, windDirection);

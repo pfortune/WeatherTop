@@ -44,7 +44,7 @@ Station(s2):
 
 User(u1):
   email: homer@simpson.com
-  password: secret
+  password: Secret123
   firstname: Homer
   lastname : Simpson
   stations :

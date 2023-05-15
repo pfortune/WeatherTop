@@ -65,6 +65,14 @@ public class AuthController extends Controller {
         }
     }
 
+    public static User getLoggedInUser() {
+        String userId = session.get("logged_in_userid");
+        if (userId != null) {
+            return User.findById(Long.parseLong(userId));
+        }
+        return null;
+    }
+
     public static void logout() {
         session.clear();
         flash("success", "You've been logged out");
