@@ -6,14 +6,14 @@ import play.mvc.Controller;
 
 public class AuthController extends Controller {
     public static void register() {
-        if(session.get("logged_in_userid") != null) {
+        if(getLoggedInUser() != null) {
             redirect("/dashboard");
         }
         render("register.html");
     }
 
     public static void login() {
-        if(session.get("logged_in_userid") != null) {
+        if(getLoggedInUser() != null) {
             redirect("/dashboard");
         }
         render("login.html");
