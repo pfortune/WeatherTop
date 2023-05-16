@@ -4,6 +4,7 @@ import models.Reading;
 import models.Station;
 
 import models.User;
+import play.Logger;
 import play.mvc.Controller;
 
 public class StationController extends Controller {
@@ -38,6 +39,25 @@ public class StationController extends Controller {
                 station.readings.add(reading);
                 station.save();
                 flash("success", "Reading added successfully");
+            }
+        } else {
+            flash("error", "Station not found");
+        }
+        redirect("/station/" + id);
+    }
+
+    public static void deleteReading(Long id, Long readingid) {
+        Logger.info("Deleting " + readingid);
+        Station station = Station.findById(id);
+        Reading reading = Reading.findById(readingid);
+        if(station != null) {
+            if(reading != null) {
+                station.readings.remove(reading);
+                station.save();
+                reading.delete();
+                flash("success", "Reading deleted successfully");
+            } else {
+                flash("error", "Reading not found");
             }
         } else {
             flash("error", "Station not found");

@@ -6,6 +6,7 @@
     <th>Temperature °C</th>
     <th>Wind Speed (km/h)</th>
     <th>Pressure</th>
+    <th>Delete</th>
   </tr>
   </thead>
   <tbody>
@@ -26,6 +27,10 @@
     <td>
       ${reading.pressure}
     </td>
+    <td>
+      <form action="/station/${_station.id}/delete/${reading.id}" method="POST">
+        <button class="button is-danger is-small">Delete</button>
+      </form>
   </tr>
   #{/list}
   </tbody>

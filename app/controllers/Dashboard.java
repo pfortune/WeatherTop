@@ -42,4 +42,24 @@ public class Dashboard extends Controller
         }
     }
 
+    public static void deleteStation(Long id) {
+        User user = AuthController.getLoggedInUser();
+        if(user == null) {
+            flash("error", "You do not have permission to delete a station");
+            redirect("/dashboard");
+        } else {
+            Station station = Station.findById(id);
+            if(station == null) {
+                flash("error", "Station not found");
+                redirect("/dashboard");
+            } else {
+                user.stations.remove(station);
+                user.save();
+                station.delete();
+                flash("success", "Station deleted successfully");
+                redirect("/dashboard");
+            }
+        }
+    }
+
 }
