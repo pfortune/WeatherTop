@@ -63,6 +63,49 @@ public class AuthController extends Controller {
         }
     }
 
+    public static void showAccount() {
+        if(getLoggedInUser() == null) {
+            redirect("/login");
+        }
+        User user = getLoggedInUser();
+        render("account.html", user);
+    }
+
+    public static void updateAccount(String firstname, String lastname, String email, String password) {
+        if(getLoggedInUser() == null) {
+            redirect("/login");
+        }
+        User user = getLoggedInUser();
+        if (firstname == null || firstname.trim().isEmpty()) {
+            flash("error", "First name cannot be empty");
+            redirect("/account");
+        } else if (lastname == null || lastname.trim().isEmpty()) {
+            flash("error", "Last name cannot be empty");
+            redirect("/account");
+        } else if (email == null || email.trim().isEmpty()) {
+            flash("error", "Email cannot be empty");
+            redirect("/account");
+        } else {
+            User existingUser = User.findByEmail(email);
+            if (existingUser != null && !existingUser.id.equals(user.id)) {
+                flash("error", "This email is already in use. Please use a different email.");
+                redirect("/account");
+            }
+            user.firstname = firstname;
+            user.lastname = lastname;
+            user.email = email;
+            if(password != null && !password.trim().isEmpty()) {
+                if(!user.setPassword(password)) {
+                    flash("error", "Password must be at least 8 characters long and include numbers, and both upper and lowercase letters");
+                    redirect("/account");
+                }
+            }
+            user.save();
+            flash("success", "Account updated successfully");
+            redirect("/account");
+        }
+    }
+
     public static User getLoggedInUser() {
         String userId = session.get("logged_in_userid");
         if (userId != null) {

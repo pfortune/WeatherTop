@@ -25,6 +25,9 @@ GET     /register                               AuthController.register
 POST    /register                               AuthController.registerUser
 POST    /authenticate                           AuthController.authenticate
 GET     /logout                                 AuthController.logout
+GET     /account                                AuthController.showAccount
+POST    /account                                AuthController.updateAccount
+
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public

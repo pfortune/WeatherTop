@@ -38,14 +38,14 @@ public class User extends Model {
     public User(String firstname, String lastname, String email, String password) {
         this.firstname = firstname;
         this.lastname = lastname;
-        this.email = email;
+        this.email = email.toLowerCase();
         setPassword(password);
     }
 
     public User() {}
 
     public static User findByEmail(String email) {
-        return find("email", email).first();
+        return find("lower(email)", email.toLowerCase()).first();
     }
 
     public boolean setPassword(String password) {
