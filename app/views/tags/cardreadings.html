@@ -13,7 +13,7 @@
             ${_station.latitude}
           </div>
           <div class="column">
-            <div class="image icon">
+            <div class="image weather-icon">
               <img src="/public/images/icons/compass.svg">
             </div>
           </div>
@@ -33,7 +33,7 @@
             ${_station.getLatestWeatherDescription()}
           </div>
           <div class="column is-full">
-            <div class="image icon">
+            <div class="image weather-icon">
               <img src="/public/images/icons/${_station.getLatestWeatherDescription().toLowerCase().replace(' ', '-')}.svg">
             </div>
           </div>
@@ -61,7 +61,7 @@
             </p>
           </div>
           <div class="column is-half">
-            <div class="image icon">
+            <div class="image weather-icon">
               <img src="/public/images/icons/thermometer.svg">
             </div>
           </div>
@@ -91,7 +91,7 @@
             </p>
           </div>
           <div class="column is-half">
-            <div class="image icon">
+            <div class="image weather-icon">
               <img src="/public/images/icons/wind-${_station.getLatestWindBeaufort()}.svg">
             </div>
           </div>
@@ -117,7 +117,7 @@
             </p>
           </div>
           <div class="column is-half">
-            <div class="image icon">
+            <div class="image weather-icon">
               <img src="/public/images/icons/barometer.svg">
             </div>
           </div>
