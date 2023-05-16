@@ -1,6 +1,7 @@
 <table class="table is-striped is-hoverable">
   <thead>
   <tr>
+    <th>Date/Time</th>
     <th>Weather Code</th>
     <th>Temperature °C</th>
     <th>Wind Speed (km/h)</th>
@@ -10,6 +11,9 @@
   <tbody>
   #{list items:_station.readings, as:'reading'}
   <tr>
+    <td>
+      ${reading.date}
+    </td>
     <td>
       ${reading.code}
     </td>
