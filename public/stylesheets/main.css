@@ -6,6 +6,11 @@
     padding: 10px;
 }
 
+.icon {
+    width: 100px;
+    height: 100px;
+}
+
 .has-image-centered {
     margin-left: auto;
     margin-right: auto;
@@ -13,4 +18,8 @@
 
 .message {
     height: 100%;
+}
+
+.message-body {
+    /*border-color: #4a4a4a;*/
 }

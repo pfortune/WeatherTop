@@ -9,7 +9,7 @@ public class Conversion {
      * @return Temperature in Fahrenheit
      */
     public static double celsiusToFahrenheit(double celsius) {
-        return (celsius * 9 / 5) + 32;
+        return roundToTwoDecimalPlaces((celsius * 9 / 5) + 32);
     }
 
     /**

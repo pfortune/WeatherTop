@@ -5,22 +5,39 @@
       <div class="message-header has-background-black">
         Location
       </div>
-      <div class="message-body has-text-white">
-        ${_station.name} <br>
-        ${_station.longitude} <br>
-        ${_station.latitude}
+      <div class="message-body">
+        <div class="columns">
+          <div class="column has-text-white">
+            ${_station.name} <br>
+            ${_station.longitude} <br>
+            ${_station.latitude}
+          </div>
+          <div class="column">
+            <div class="image icon">
+              <img src="/public/images/icons/compass.svg">
+            </div>
+          </div>
+        </div>
       </div>
     </article>
   </div>
+
   <div class="column">
     <article class="message has-background-black">
       <div class="message-header has-background-black">
         Weather
       </div>
-      <div class="message-body has-text-white">
-        <p>
-          ${_station.getLatestWeatherDescription()}
-        </p>
+      <div class="message-body">
+        <div class="columns is-mobile">
+          <div class="column has-text-white">
+            ${_station.getLatestWeatherDescription()}
+          </div>
+          <div class="column is-full">
+            <div class="image icon">
+              <img src="/public/images/icons/${_station.getLatestWeatherDescription().toLowerCase().replace(' ', '-')}.svg">
+            </div>
+          </div>
+        </div>
       </div>
     </article>
   </div>
@@ -29,37 +46,56 @@
       <div class="message-header has-background-black">
         Temperature
       </div>
-      <div class="message-body has-text-white">
-        <p>
-          ${_station.getLatestTemperatureCelcius()} °C
-          <br>
-          ${_station.getLatestTemperatureFahrenheit()} °F
-        </p>
-        <p>
-          ${_station.getMinTemperature()} °C <i class="fa-solid fa-temperature-arrow-down"></i>
-          <br>
-          ${_station.getMaxTemperature()} °C <i class="fa-solid fa-temperature-arrow-up"></i>
-        </p>
+      <div class="message-body">
+        <div class="columns is-mobile">
+          <div class="column has-text-white">
+            <p>
+              ${_station.getLatestTemperatureCelcius()} °C
+              <br>
+              ${_station.getLatestTemperatureFahrenheit()} °F
+            </p>
+            <p>
+              min: ${_station.getMinTemperature()}
+              <br>
+              max: ${_station.getMaxTemperature()}
+            </p>
+          </div>
+          <div class="column is-half">
+            <div class="image icon">
+              <img src="/public/images/icons/thermometer.svg">
+            </div>
+          </div>
+        </div>
       </div>
     </article>
   </div>
+
   <div class="column">
     <article class="message has-background-black">
       <div class="message-header has-background-black">
         Wind
       </div>
-      <div class="message-body has-text-white">
-        <p>
-          ${_station.getLatestWindBeaufort()} bft <br>
-          ${_station.getLatestWindDirectionCompass()} <br>
-          Feels Like<br>
-          ${_station.getLatestWindChill()} °C<br>
-        </p>
-        <p>
-          ${_station.getMinWindSpeed()} bft <i class="fa-solid fa-arrow-down-short-wide"></i>
-          <br>
-          ${_station.getMaxWindSpeed()} bft <i class="fa-solid fa-arrow-up-short-wide"></i>
-        </p>
+      <div class="message-body">
+        <div class="columns is-mobile">
+          <div class="column has-text-white">
+            <p>
+              ${_station.getLatestWindBeaufort()} bft <br>
+              ${_station.getLatestWindDirectionCompass()} <br>
+              Feels Like<br>
+              ${_station.getLatestWindChill()} °C<br>
+            </p>
+            <p>
+              min: ${_station.getMinWindSpeed()}
+              <br>
+              max: ${_station.getMaxWindSpeed()}
+            </p>
+          </div>
+          <div class="column is-half">
+            <div class="image icon">
+              <img src="/public/images/icons/wind-${_station.getLatestWindBeaufort()}.svg">
+            </div>
+          </div>
+        </div>
       </div>
     </article>
   </div>
@@ -68,15 +104,24 @@
       <div class="message-header has-background-black">
         Pressure
       </div>
-      <div class="message-body has-text-white">
-        <p>
-          ${_station.getLatestPressure()} hpa
-        </p>
-        <p>
-          ${_station.getMinPressure()} hpa <i class="fa-solid fa-arrow-down-short-wide"></i>
-          <br>
-          ${_station.getMaxPressure()} hpa <i class="fa-solid fa-arrow-up-short-wide"></i>
-        </p>
+      <div class="message-body">
+        <div class="columns is-mobile">
+          <div class="column has-text-white">
+            <p>
+              ${_station.getLatestPressure()} hpa
+            </p>
+            <p>
+              min: ${_station.getMinPressure()} hpa
+              <br>
+              max: ${_station.getMaxPressure()} hpa
+            </p>
+          </div>
+          <div class="column is-half">
+            <div class="image icon">
+              <img src="/public/images/icons/barometer.svg">
+            </div>
+          </div>
+        </div>
       </div>
     </article>
   </div>
