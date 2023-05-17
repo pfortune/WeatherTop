@@ -1,5 +1,5 @@
 # Application dependencies
 
 require:
-    - play 1.5.3
-    - org.mindrot -> jbcrypt 0.4
+  - play 1.5.3
+  - org.mindrot -> jbcrypt 0.4

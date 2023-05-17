@@ -1,24 +1,28 @@
 # WeatherTop Release 3
+
 Live Web App: [https://weathertop.ie](https://weathertop.ie)
 
 ## Introduction
 
-WeatherTop Release 3 is the fifth and final version of the WeatherTop web companion application designed for WeatherTop 1000, a modular weather station. This version includes all features from the previous release, and adds 6 new features such as Trends, Date/Time stamp, All Stations Summary, Delete Support, Cloud Deployment, and Member Detail Editing.
+WeatherTop Release 3 is the fifth and final version of the WeatherTop web companion application designed for WeatherTop
+1000, a modular weather station. This version includes all features from the previous release, and adds 6 new features
+such as Trends, Date/Time stamp, All Stations Summary, Delete Support, Cloud Deployment, and Member Detail Editing.
 
 ## Features
 
 - All features from Release 2
 - New Features:
-  1. Trends
-  2. Date/Time Stamp on Each Reading
-  3. All Stations Summary
-  4. Station/Reading Delete Support
-  5. Deployed to the Cloud
-  6. Members Can Edit Their Personal Details
+    1. Trends
+    2. Date/Time Stamp on Each Reading
+    3. All Stations Summary
+    4. Station/Reading Delete Support
+    5. Deployed to the Cloud
+    6. Members Can Edit Their Personal Details
 
 ### Trends
 
 Trends are available for Temperature, Wind Speed and Pressure. A trend can be:
+
 - Rising (📈): the three most recent measurements are increasing
 - Falling (📉): the three most recent measurements are falling
 - Steady: neither of the above

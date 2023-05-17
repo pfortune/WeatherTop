@@ -2,12 +2,12 @@
 #{set title:'404 Page Not Found' /}
 
 #{if play.mode.name() == 'DEV'}
-    #{404 result /}
+#{404 result /}
 #{/if}
 #{else}
-    <h1>Not found</h1>
-    <p>
-        ${result.message}
-    </p>
+<h1>Not found</h1>
+<p>
+    ${result.message}
+</p>
 #{/else}
 

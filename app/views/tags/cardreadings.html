@@ -1,162 +1,162 @@
 #{if _station.readings.size() > 0}
 <div class="columns">
-  <div class="column">
-    <article class="message has-background-black">
-      <div class="message-header has-background-black">
-        ${_station.name}
-      </div>
-      <div class="message-body">
-        <div class="columns">
-          <div class="column has-text-white">
-            ${_station.longitude} <br>
-            ${_station.latitude}
-          </div>
-          <div class="column">
-            <div class="image weather-icon">
-              <img src="/public/images/icons/compass.svg">
+    <div class="column">
+        <article class="message has-background-black">
+            <div class="message-header has-background-black">
+                ${_station.name}
             </div>
-          </div>
-        </div>
-      </div>
-    </article>
-  </div>
+            <div class="message-body">
+                <div class="columns">
+                    <div class="column has-text-white">
+                        ${_station.longitude} <br>
+                        ${_station.latitude}
+                    </div>
+                    <div class="column">
+                        <div class="image weather-icon">
+                            <img src="/public/images/icons/compass.svg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
 
-  <div class="column">
-    <article class="message has-background-black">
-      <div class="message-header has-background-black">
-        Weather
-      </div>
-      <div class="message-body">
-        <div class="columns is-mobile">
-          <div class="column has-text-white">
-            ${_station.getLatestWeatherDescription()}
-          </div>
-          <div class="column is-full">
-            <div class="image weather-icon">
-              <img src="/public/images/icons/${_station.getLatestWeatherDescription().toLowerCase().replace(' ', '-')}.svg">
+    <div class="column">
+        <article class="message has-background-black">
+            <div class="message-header has-background-black">
+                Weather
             </div>
-          </div>
-        </div>
-      </div>
-    </article>
-  </div>
-  <div class="column">
-    <article class="message has-background-black">
-      <div class="message-header has-background-black">
-        Temperature
-      </div>
-      <div class="message-body">
-        <div class="columns is-mobile">
-          <div class="column has-text-white">
-            <p>
-              ${_station.getLatestTemperatureCelcius()} °C
-              <br>
-              ${_station.getLatestTemperatureFahrenheit()} °F
-            </p>
-            <p>
-              min: ${_station.getMinTemperature()}
-              <br>
-              max: ${_station.getMaxTemperature()}
-              <br>
-              ${_station.getTemperatureTrend()}
-              #{if _station.getTemperatureTrend().toLowerCase().equals("increasing")}
-              <i class="fas fa-arrow-up"></i>
-              #{/if}
-              #{if _station.getTemperatureTrend().toLowerCase().equals("decreasing")}
-              <i class="fas fa-arrow-down"></i>
-              #{/if}
-              #{if _station.getTemperatureTrend().toLowerCase().equals("steady")}
-              <i class="fas fa-arrows-alt-h"></i>
-              #{/if}
-            </p>
-          </div>
-          <div class="column is-half">
-            <div class="image weather-icon">
-              <img src="/public/images/icons/thermometer.svg">
+            <div class="message-body">
+                <div class="columns is-mobile">
+                    <div class="column has-text-white">
+                        ${_station.getLatestWeatherDescription()}
+                    </div>
+                    <div class="column is-full">
+                        <div class="image weather-icon">
+                            <img src="/public/images/icons/${_station.getLatestWeatherDescription().toLowerCase().replace(' ', '-')}.svg">
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </article>
-  </div>
+        </article>
+    </div>
+    <div class="column">
+        <article class="message has-background-black">
+            <div class="message-header has-background-black">
+                Temperature
+            </div>
+            <div class="message-body">
+                <div class="columns is-mobile">
+                    <div class="column has-text-white">
+                        <p>
+                            ${_station.getLatestTemperatureCelcius()} °C
+                            <br>
+                            ${_station.getLatestTemperatureFahrenheit()} °F
+                        </p>
+                        <p>
+                            min: ${_station.getMinTemperature()}
+                            <br>
+                            max: ${_station.getMaxTemperature()}
+                            <br>
+                            ${_station.getTemperatureTrend()}
+                            #{if _station.getTemperatureTrend().toLowerCase().equals("increasing")}
+                            <i class="fas fa-arrow-up"></i>
+                            #{/if}
+                            #{if _station.getTemperatureTrend().toLowerCase().equals("decreasing")}
+                            <i class="fas fa-arrow-down"></i>
+                            #{/if}
+                            #{if _station.getTemperatureTrend().toLowerCase().equals("steady")}
+                            <i class="fas fa-arrows-alt-h"></i>
+                            #{/if}
+                        </p>
+                    </div>
+                    <div class="column is-half">
+                        <div class="image weather-icon">
+                            <img src="/public/images/icons/thermometer.svg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
 
-  <div class="column">
-    <article class="message has-background-black">
-      <div class="message-header has-background-black">
-        Wind
-      </div>
-      <div class="message-body">
-        <div class="columns is-mobile">
-          <div class="column has-text-white">
-            <p>
-              ${_station.getLatestWindBeaufort()} bft <br>
-              ${_station.getLatestWindDirectionCompass()} <br>
-              Feels Like<br>
-              ${_station.getLatestWindChill()} °C<br>
-            </p>
-            <p>
-              min: ${_station.getMinWindSpeed()}
-              <br>
-              max: ${_station.getMaxWindSpeed()}
-              <br>
-              ${_station.getWindTrend()}
-              #{if _station.getWindTrend().toLowerCase().equals("increasing")}
-              <i class="fas fa-arrow-up"></i>
-              #{/if}
-              #{if _station.getWindTrend().toLowerCase().equals("decreasing")}
-              <i class="fas fa-arrow-down"></i>
-              #{/if}
-              #{if _station.getWindTrend().toLowerCase().equals("steady")}
-              <i class="fas fa-arrows-alt-h"></i>
-              #{/if}
-            </p>
-          </div>
-          <div class="column is-half">
-            <div class="image weather-icon">
-              <img src="/public/images/icons/wind-${_station.getLatestWindBeaufort()}.svg">
+    <div class="column">
+        <article class="message has-background-black">
+            <div class="message-header has-background-black">
+                Wind
             </div>
-          </div>
-        </div>
-      </div>
-    </article>
-  </div>
-  <div class="column">
-    <article class="message has-background-black">
-      <div class="message-header has-background-black">
-        Pressure
-      </div>
-      <div class="message-body">
-        <div class="columns is-mobile">
-          <div class="column has-text-white">
-            <p>
-              ${_station.getLatestPressure()} hpa
-            </p>
-            <p>
-              min: ${_station.getMinPressure()}
-              <br>
-              max: ${_station.getMaxPressure()}
-              <br>
-              ${_station.getPressureTrend()}
-              #{if _station.getPressureTrend().toLowerCase().equals("increasing")}
-              <i class="fas fa-arrow-up"></i>
-              #{/if}
-              #{if _station.getPressureTrend().toLowerCase().equals("decreasing")}
-              <i class="fas fa-arrow-down"></i>
-              #{/if}
-              #{if _station.getPressureTrend().toLowerCase().equals("steady")}
-              <i class="fas fa-arrows-alt-h"></i>
-              #{/if}
-            </p>
-          </div>
-          <div class="column is-half">
-            <div class="image weather-icon">
-              <img src="/public/images/icons/barometer.svg">
+            <div class="message-body">
+                <div class="columns is-mobile">
+                    <div class="column has-text-white">
+                        <p>
+                            ${_station.getLatestWindBeaufort()} bft <br>
+                            ${_station.getLatestWindDirectionCompass()} <br>
+                            Feels Like<br>
+                            ${_station.getLatestWindChill()} °C<br>
+                        </p>
+                        <p>
+                            min: ${_station.getMinWindSpeed()}
+                            <br>
+                            max: ${_station.getMaxWindSpeed()}
+                            <br>
+                            ${_station.getWindTrend()}
+                            #{if _station.getWindTrend().toLowerCase().equals("increasing")}
+                            <i class="fas fa-arrow-up"></i>
+                            #{/if}
+                            #{if _station.getWindTrend().toLowerCase().equals("decreasing")}
+                            <i class="fas fa-arrow-down"></i>
+                            #{/if}
+                            #{if _station.getWindTrend().toLowerCase().equals("steady")}
+                            <i class="fas fa-arrows-alt-h"></i>
+                            #{/if}
+                        </p>
+                    </div>
+                    <div class="column is-half">
+                        <div class="image weather-icon">
+                            <img src="/public/images/icons/wind-${_station.getLatestWindBeaufort()}.svg">
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </article>
-  </div>
+        </article>
+    </div>
+    <div class="column">
+        <article class="message has-background-black">
+            <div class="message-header has-background-black">
+                Pressure
+            </div>
+            <div class="message-body">
+                <div class="columns is-mobile">
+                    <div class="column has-text-white">
+                        <p>
+                            ${_station.getLatestPressure()} hpa
+                        </p>
+                        <p>
+                            min: ${_station.getMinPressure()}
+                            <br>
+                            max: ${_station.getMaxPressure()}
+                            <br>
+                            ${_station.getPressureTrend()}
+                            #{if _station.getPressureTrend().toLowerCase().equals("increasing")}
+                            <i class="fas fa-arrow-up"></i>
+                            #{/if}
+                            #{if _station.getPressureTrend().toLowerCase().equals("decreasing")}
+                            <i class="fas fa-arrow-down"></i>
+                            #{/if}
+                            #{if _station.getPressureTrend().toLowerCase().equals("steady")}
+                            <i class="fas fa-arrows-alt-h"></i>
+                            #{/if}
+                        </p>
+                    </div>
+                    <div class="column is-half">
+                        <div class="image weather-icon">
+                            <img src="/public/images/icons/barometer.svg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
 
 </div>
 #{/if}
