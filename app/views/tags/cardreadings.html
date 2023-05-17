@@ -57,6 +57,17 @@
               min: ${_station.getMinTemperature()}
               <br>
               max: ${_station.getMaxTemperature()}
+              <br>
+              ${_station.getTemperatureTrend()}
+              #{if _station.getTemperatureTrend().toLowerCase().equals("increasing")}
+              <i class="fas fa-arrow-up"></i>
+              #{/if}
+              #{if _station.getTemperatureTrend().toLowerCase().equals("decreasing")}
+              <i class="fas fa-arrow-down"></i>
+              #{/if}
+              #{if _station.getTemperatureTrend().toLowerCase().equals("steady")}
+              <i class="fas fa-arrows-alt-h"></i>
+              #{/if}
             </p>
           </div>
           <div class="column is-half">
@@ -87,6 +98,17 @@
               min: ${_station.getMinWindSpeed()}
               <br>
               max: ${_station.getMaxWindSpeed()}
+              <br>
+              ${_station.getWindTrend()}
+              #{if _station.getWindTrend().toLowerCase().equals("increasing")}
+              <i class="fas fa-arrow-up"></i>
+              #{/if}
+              #{if _station.getWindTrend().toLowerCase().equals("decreasing")}
+              <i class="fas fa-arrow-down"></i>
+              #{/if}
+              #{if _station.getWindTrend().toLowerCase().equals("steady")}
+              <i class="fas fa-arrows-alt-h"></i>
+              #{/if}
             </p>
           </div>
           <div class="column is-half">
@@ -113,6 +135,17 @@
               min: ${_station.getMinPressure()}
               <br>
               max: ${_station.getMaxPressure()}
+              <br>
+              ${_station.getPressureTrend()}
+              #{if _station.getPressureTrend().toLowerCase().equals("increasing")}
+              <i class="fas fa-arrow-up"></i>
+              #{/if}
+              #{if _station.getPressureTrend().toLowerCase().equals("decreasing")}
+              <i class="fas fa-arrow-down"></i>
+              #{/if}
+              #{if _station.getPressureTrend().toLowerCase().equals("steady")}
+              <i class="fas fa-arrows-alt-h"></i>
+              #{/if}
             </p>
           </div>
           <div class="column is-half">
@@ -124,6 +157,7 @@
       </div>
     </article>
   </div>
+
 </div>
 #{/if}
 

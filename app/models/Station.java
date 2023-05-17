@@ -117,7 +117,7 @@ public class Station extends Model {
      */
     public String getPressureTrend() {
         if (readings.size() < 3) {
-            return "Insufficient data";
+            return "";
         } else {
             int lastReading = readings.get(readings.size() - 1).pressure;
             int secondLastReading = readings.get(readings.size() - 2).pressure;
@@ -140,7 +140,7 @@ public class Station extends Model {
      */
     public String getTemperatureTrend() {
         if (readings.size() < 3) {
-            return "Insufficient data";
+            return "";
         } else {
             double lastReading = readings.get(readings.size() - 1).temperature;
             double secondLastReading = readings.get(readings.size() - 2).temperature;
@@ -163,7 +163,7 @@ public class Station extends Model {
      */
     public String getWindTrend() {
         if (readings.size() < 3) {
-            return "Insufficient data";
+            return "";
         } else {
             double lastReading = readings.get(readings.size() - 1).windSpeed;
             double secondLastReading = readings.get(readings.size() - 2).windSpeed;
