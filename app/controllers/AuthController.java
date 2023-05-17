@@ -39,7 +39,16 @@ public class AuthController extends Controller {
                 flash("error", "This email is already in use. Please use a different email.");
                 redirect("/register");
             }
-            User user = new User(firstname, lastname, email, password);
+            User user = new User();
+            user.firstname = firstname;
+            user.lastname = lastname;
+            user.email = email;
+            if(password != null && !password.trim().isEmpty()) {
+                if(!user.setPassword(password)) {
+                    flash("error", "Password must be at least 8 characters long and include numbers, and both upper and lowercase letters");
+                    redirect("/register");
+                }
+            }
             user.save();
             session.put("logged_in_userid", user.id);
             flash("success", "Welcome, " + user.firstname);
