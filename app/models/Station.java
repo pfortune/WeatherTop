@@ -320,4 +320,8 @@ public class Station extends Model {
       return 0;
     }
   }
+
+  public String getName() {
+    return name;
+  }
 }

@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.Comparator;
 import java.util.List;
 
 import models.Station;
@@ -17,7 +18,8 @@ public class Dashboard extends Controller {
       page = 1;
     }
 
-    List<Station> allStations = user.stations;
+    List<Station> allStations = sortStations(user.stations); // sort stations alphabetically
+
     int pageSize = 3;  // or whatever number you choose
     int pages = (allStations.size() + pageSize - 1) / pageSize;
     int start = (page - 1) * pageSize;
@@ -27,6 +29,11 @@ public class Dashboard extends Controller {
     render("dashboard.html", stations, page, pages);
   }
 
+
+  public static List<Station> sortStations(List<Station> stations) {
+    stations.sort(Comparator.comparing(Station::getName, String.CASE_INSENSITIVE_ORDER));
+    return stations;
+  }
 
   public static void addStation(String title, double latitude, double longitude) {
     if (title == null || title.trim().isEmpty()) {
