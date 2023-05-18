@@ -41,30 +41,16 @@
 #{list items:stations, as:'s'}
 <div class="content box">
     #{cardreadings station:s/}
-    <div>
-        <span class="icon">
-            <a href="/station/${s.id}"><i class="fa-solid fa-folder-open"></i></a> </i>
-        </span>
-
-        <form action="/dashboard/${s.id}/delete" method="POST" style="display: inline;">
-            <button type="submit" class="icon" style="border:none; background: none; color: #ff0000;">
-                <i class="fa-solid fa-trash-can"></i>
-            </button>
-        </form>
+    <div class="card-footer mt-4">
+        <a href="/station/${s.id}" class="card-footer-item has-background-success has-text-white">
+            <span>View Station</span>
+        </a>
+        <a class="card-footer-item has-background-danger has-text-white">
+            <div class="container is-fullwidth has-text-centered">
+                <span>Delete Station</span>
+            </div>
+        </a>
     </div>
-
-    <style>
-        button.icon:hover {
-            color: #cc0000 !important;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        button.icon {
-            font-size: 16px;
-        }
-    </style>
-
 </div>
 #{/list}
 

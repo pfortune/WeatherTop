@@ -32,3 +32,13 @@
 .card-header {
     border-bottom: 1px solid rgba(34, 36, 38, .1);
 }
+
+button.icon:hover {
+    color: #cc0000 !important;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button.icon {
+    font-size: 16px;
+}
