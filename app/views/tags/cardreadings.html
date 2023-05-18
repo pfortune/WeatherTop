@@ -9,7 +9,7 @@
                             <div class="columns is-mobile is-gapless is-vcentered">
                                 <div class="column is-half is-one-thirds-mobile">
 
-                                    <h4 class="title is-size-3-desktop is-size-5-mobile is-size-5-tablet has-text-weight-bold has-text-white">
+                                    <h4 class="title is-size-4 has-text-weight-bold has-text-white">
                                         ${_station.name}</h4>
                                 </div>
                                 <div class="column">
@@ -46,119 +46,115 @@
             </div>
 
             <div class="column is-4-desktop">
-                <div class="columns">
-                    <div class="column">
-                        <div class="card events-card">
-                            <header class="card-header is-shadowless p-2">
-                                <p class="card-header-title is-size-3">
-                                    Stats
-                                </p>
-                            </header>
+                <div class="card events-card">
+                    <header class="card-header is-shadowless p-2">
+                        <p class="card-header-title is-size-3">
+                            Stats
+                        </p>
+                    </header>
 
-                            <header class="card-header is-shadowless">
-                                <p class="card-header-title is-centered">
-                                    Temperature (°C)
-                                </p>
-                            </header>
-                            <div class="card-content">
-                                <div class="columns is-flex">
-                                    <div class="column is-one-third has-text-centered py-0">
-                                        <div class="is-size-4 has-text-weight-bold">
-                                            ${_station.getMinTemperature()}
-                                        </div>
-                                        <div class="is-size-6 has-text-weight-bold is-uppercase">Min</div>
-                                    </div>
-                                    <div class="column is-one-third has-text-centered py-0">
-                                        <div class="is-size-4 has-text-weight-bold">
-                                            ${_station.getMaxTemperature()}
-                                        </div>
-                                        <div class="is-size-6 has-text-weight-bold is-uppercase">Max</div>
-                                    </div>
-                                    <div class="column is-one-third has-text-centered py-0">
-                                        <div class="is-size-4 has-text-weight-bold">
-                                            #{if _station.getTemperatureTrend().toLowerCase().equals("increasing")}
-                                            <i class="fas fa-arrow-up"></i>
-                                            #{/if}
-                                            #{if _station.getTemperatureTrend().toLowerCase().equals("decreasing")}
-                                            <i class="fas fa-arrow-down"></i>
-                                            #{/if}
-                                            #{if _station.getTemperatureTrend().toLowerCase().equals("steady")}
-                                            <i class="fas fa-arrows-alt-h"></i>
-                                            #{/if}
-                                        </div>
-                                    </div>
+                    <header class="card-header is-shadowless">
+                        <p class="card-header-title is-centered">
+                            Temperature (°C)
+                        </p>
+                    </header>
+                    <div class="card-content">
+                        <div class="columns is-flex">
+                            <div class="column is-one-third has-text-centered py-0">
+                                <div class="is-size-4 has-text-weight-bold">
+                                    ${_station.getMinTemperature()}
+                                </div>
+                                <div class="is-size-6 has-text-weight-bold is-uppercase">Min</div>
+                            </div>
+                            <div class="column is-one-third has-text-centered py-0">
+                                <div class="is-size-4 has-text-weight-bold">
+                                    ${_station.getMaxTemperature()}
+                                </div>
+                                <div class="is-size-6 has-text-weight-bold is-uppercase">Max</div>
+                            </div>
+                            <div class="column is-one-third has-text-centered py-0">
+                                <div class="is-size-4 has-text-weight-bold">
+                                    #{if _station.getTemperatureTrend().toLowerCase().equals("increasing")}
+                                    <i class="fas fa-arrow-up"></i>
+                                    #{/if}
+                                    #{if _station.getTemperatureTrend().toLowerCase().equals("decreasing")}
+                                    <i class="fas fa-arrow-down"></i>
+                                    #{/if}
+                                    #{if _station.getTemperatureTrend().toLowerCase().equals("steady")}
+                                    <i class="fas fa-arrows-alt-h"></i>
+                                    #{/if}
                                 </div>
                             </div>
+                        </div>
+                    </div>
 
-                            <header class="card-header is-shadowless">
-                                <p class="card-header-title is-centered">
-                                    Wind Speed (km/h)
-                                </p>
-                            </header>
+                    <header class="card-header is-shadowless">
+                        <p class="card-header-title is-centered">
+                            Wind Speed (km/h)
+                        </p>
+                    </header>
 
-                            <div class="card-content">
-                                <div class="columns is-flex">
-                                    <div class="column is-one-third has-text-centered py-0">
-                                        <div class="is-size-4 has-text-weight-bold">
-                                            ${_station.getMinWindSpeed()}
-                                        </div>
-                                        <div class="is-size-6 has-text-weight-bold is-uppercase">Min</div>
-                                    </div>
-                                    <div class="column is-one-third has-text-centered py-0">
-                                        <div class="is-size-4 has-text-weight-bold">
-                                            ${_station.getMaxWindSpeed()}
-                                        </div>
-                                        <div class="is-size-6 has-text-weight-bold is-uppercase">Max</div>
-                                    </div>
-                                    <div class="column is-one-third has-text-centered py-0">
-                                        <div class="is-size-4 has-text-weight-bold">
-                                            #{if _station.getWindTrend().toLowerCase().equals("increasing")}
-                                            <i class="fas fa-arrow-up"></i>
-                                            #{/if}
-                                            #{if _station.getWindTrend().toLowerCase().equals("decreasing")}
-                                            <i class="fas fa-arrow-down"></i>
-                                            #{/if}
-                                            #{if _station.getWindTrend().toLowerCase().equals("steady")}
-                                            <i class="fas fa-arrows-alt-h"></i>
-                                            #{/if}
-                                        </div>
-                                    </div>
+                    <div class="card-content">
+                        <div class="columns is-flex">
+                            <div class="column is-one-third has-text-centered py-0">
+                                <div class="is-size-4 has-text-weight-bold">
+                                    ${_station.getMinWindSpeed()}
+                                </div>
+                                <div class="is-size-6 has-text-weight-bold is-uppercase">Min</div>
+                            </div>
+                            <div class="column is-one-third has-text-centered py-0">
+                                <div class="is-size-4 has-text-weight-bold">
+                                    ${_station.getMaxWindSpeed()}
+                                </div>
+                                <div class="is-size-6 has-text-weight-bold is-uppercase">Max</div>
+                            </div>
+                            <div class="column is-one-third has-text-centered py-0">
+                                <div class="is-size-4 has-text-weight-bold">
+                                    #{if _station.getWindTrend().toLowerCase().equals("increasing")}
+                                    <i class="fas fa-arrow-up"></i>
+                                    #{/if}
+                                    #{if _station.getWindTrend().toLowerCase().equals("decreasing")}
+                                    <i class="fas fa-arrow-down"></i>
+                                    #{/if}
+                                    #{if _station.getWindTrend().toLowerCase().equals("steady")}
+                                    <i class="fas fa-arrows-alt-h"></i>
+                                    #{/if}
                                 </div>
                             </div>
+                        </div>
+                    </div>
 
-                            <header class="card-header is-shadowless is-info">
-                                <p class="card-header-title is-centered">
-                                    Pressure (hPa)
-                                </p>
-                            </header>
+                    <header class="card-header is-shadowless is-info">
+                        <p class="card-header-title is-centered">
+                            Pressure (hPa)
+                        </p>
+                    </header>
 
-                            <div class="card-content">
-                                <div class="columns is-flex">
-                                    <div class="column is-one-third has-text-centered py-0">
-                                        <div class="is-size-4 has-text-weight-bold">
-                                            ${_station.getMinPressure()}
-                                        </div>
-                                        <div class="is-size-6 has-text-weight-bold is-uppercase">Min</div>
-                                    </div>
-                                    <div class="column is-one-third has-text-centered py-0">
-                                        <div class="is-size-4 has-text-weight-bold">
-                                            ${_station.getMaxPressure()}
-                                        </div>
-                                        <div class="is-size-6 has-text-weight-bold is-uppercase">Max</div>
-                                    </div>
-                                    <div class="column is-one-third has-text-centered py-0">
-                                        <div class="is-size-4 has-text-weight-bold">
-                                            #{if _station.getPressureTrend().toLowerCase().equals("increasing")}
-                                            <i class="fas fa-arrow-up"></i>
-                                            #{/if}
-                                            #{if _station.getPressureTrend().toLowerCase().equals("decreasing")}
-                                            <i class="fas fa-arrow-down"></i>
-                                            #{/if}
-                                            #{if _station.getPressureTrend().toLowerCase().equals("steady")}
-                                            <i class="fas fa-arrows-alt-h"></i>
-                                            #{/if}
-                                        </div>
-                                    </div>
+                    <div class="card-content">
+                        <div class="columns is-flex">
+                            <div class="column is-one-third has-text-centered py-0">
+                                <div class="is-size-4 has-text-weight-bold">
+                                    ${_station.getMinPressure()}
+                                </div>
+                                <div class="is-size-6 has-text-weight-bold is-uppercase">Min</div>
+                            </div>
+                            <div class="column is-one-third has-text-centered py-0">
+                                <div class="is-size-4 has-text-weight-bold">
+                                    ${_station.getMaxPressure()}
+                                </div>
+                                <div class="is-size-6 has-text-weight-bold is-uppercase">Max</div>
+                            </div>
+                            <div class="column is-one-third has-text-centered py-0">
+                                <div class="is-size-4 has-text-weight-bold">
+                                    #{if _station.getPressureTrend().toLowerCase().equals("increasing")}
+                                    <i class="fas fa-arrow-up"></i>
+                                    #{/if}
+                                    #{if _station.getPressureTrend().toLowerCase().equals("decreasing")}
+                                    <i class="fas fa-arrow-down"></i>
+                                    #{/if}
+                                    #{if _station.getPressureTrend().toLowerCase().equals("steady")}
+                                    <i class="fas fa-arrows-alt-h"></i>
+                                    #{/if}
                                 </div>
                             </div>
                         </div>
