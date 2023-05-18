@@ -21,39 +21,11 @@ public class AuthController extends Controller {
 
   //register a new user
   public static void registerUser(String firstname, String lastname, String email, String password) {
-    if (firstname == null || firstname.trim().isEmpty()) {
-      flash("error", "First name cannot be empty");
-      redirect("/register");
-    } else if (lastname == null || lastname.trim().isEmpty()) {
-      flash("error", "Last name cannot be empty");
-      redirect("/register");
-    } else if (email == null || email.trim().isEmpty()) {
-      flash("error", "Email cannot be empty");
-      redirect("/register");
-    } else if (password == null || password.trim().isEmpty()) {
-      flash("error", "Password cannot be empty");
-      redirect("/register");
-    } else {
-      User existingUser = User.findByEmail(email);
-      if (existingUser != null) {
-        flash("error", "This email is already in use. Please use a different email.");
-        redirect("/register");
-      }
-      User user = new User();
-      user.firstname = firstname;
-      user.lastname = lastname;
-      user.email = email;
-      if (password != null && !password.trim().isEmpty()) {
-        if (!user.setPassword(password)) {
-          flash("error", "Password must be at least 8 characters long and include numbers, and both upper and lowercase letters");
-          redirect("/register");
-        }
-      }
-      user.save();
-      session.put("logged_in_userid", user.id);
-      flash("success", "Welcome, " + user.firstname);
-      redirect("/dashboard");
-    }
+    User user = new User();
+    validateAndSetUserDetails(user, firstname, lastname, email, password, "/register");
+    session.put("logged_in_userid", user.id);
+    flash("success", "Welcome, " + user.firstname);
+    redirect("/dashboard");
   }
 
   public static void authenticate(String email, String password) {
@@ -72,33 +44,31 @@ public class AuthController extends Controller {
     }
   }
 
-  public static void showAccount() {
-    if (getLoggedInUser() == null) {
-      redirect("/login");
-    }
-    User user = getLoggedInUser();
-    render("account.html", user);
-  }
-
   public static void updateAccount(String firstname, String lastname, String email, String password) {
     if (getLoggedInUser() == null) {
       redirect("/login");
     }
     User user = getLoggedInUser();
+    validateAndSetUserDetails(user, firstname, lastname, email, password, "/account");
+    flash("success", "Account updated successfully");
+    redirect("/account");
+  }
+
+  private static void validateAndSetUserDetails(User user, String firstname, String lastname, String email, String password, String redirectUrl) {
     if (firstname == null || firstname.trim().isEmpty()) {
       flash("error", "First name cannot be empty");
-      redirect("/account");
+      redirect(redirectUrl);
     } else if (lastname == null || lastname.trim().isEmpty()) {
       flash("error", "Last name cannot be empty");
-      redirect("/account");
+      redirect(redirectUrl);
     } else if (email == null || email.trim().isEmpty()) {
       flash("error", "Email cannot be empty");
-      redirect("/account");
+      redirect(redirectUrl);
     } else {
       User existingUser = User.findByEmail(email);
       if (existingUser != null && !existingUser.id.equals(user.id)) {
         flash("error", "This email is already in use. Please use a different email.");
-        redirect("/account");
+        redirect(redirectUrl);
       }
       user.firstname = firstname;
       user.lastname = lastname;
@@ -106,13 +76,19 @@ public class AuthController extends Controller {
       if (password != null && !password.trim().isEmpty()) {
         if (!user.setPassword(password)) {
           flash("error", "Password must be at least 8 characters long and include numbers, and both upper and lowercase letters");
-          redirect("/account");
+          redirect(redirectUrl);
         }
       }
       user.save();
-      flash("success", "Account updated successfully");
-      redirect("/account");
     }
+  }
+
+  public static void showAccount() {
+    if (getLoggedInUser() == null) {
+      redirect("/login");
+    }
+    User user = getLoggedInUser();
+    render("account.html", user);
   }
 
   public static User getLoggedInUser() {
