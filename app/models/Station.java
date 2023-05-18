@@ -112,6 +112,15 @@ public class Station extends Model {
   }
 
   /**
+   * Gets the date of the latest reading for this station.
+   *
+   * @return The date of latest reading.
+   */
+  public String getLatestDate() {
+    return getLatestReading().date.toString();
+  }
+
+  /**
    * Gets the pressure trend for this station.
    *
    * @return A string representing the pressure trend.

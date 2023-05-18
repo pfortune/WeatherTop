@@ -19,3 +19,7 @@
 .message {
     height: 100%;
 }
+
+.notification {
+    border-radius: 0px 0px 4px 4px;
+}

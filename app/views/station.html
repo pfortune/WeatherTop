@@ -3,6 +3,11 @@
 
 #{menu id:"station"/}
 
+<iframe width="100%" height="350" style="border: #ffffff" src="https://www.openstreetmap.org/export/embed.html?
+bbox=${station.longitude - 0.005}%2C${station.latitude - 0.005}%2C${station.longitude + 0.005}%2C${station.latitude + 0.005}
+&amp;layer=mapnik&amp;
+marker=${station.latitude}%2C${station.longitude}">
+</iframe>
 
 #{if flash.error}
 <div class="notification is-danger">
@@ -18,12 +23,11 @@
 
 <form class="box" action="/station/${station.id}/add" method="POST">
     <div class="columns is-multiline is-mobile">
-        <div class="field column is-full-mobile is-one-fifth-desktop">
-            <label class="label">Code</label>
+        <div class="field column is-full-mobile is-one-sixth-desktop">
             <div class="control">
                 <div class="select is-fullwidth">
                     <select name="code">
-                        <option value=""></option>
+                        <option value="" disabled selected hidden>Weather Code</option>
                         <option value="100">100 - Clear</option>
                         <option value="200">200 - Partial Clouds</option>
                         <option value="300">300 - Cloudy</option>
@@ -36,37 +40,33 @@
                 </div>
             </div>
         </div>
-        <div class="field column is-full-mobile is-one-fifth-desktop">
-            <label class="label">Temperature</label>
+        <div class="field column is-full-mobile is-one-sixth-desktop">
             <div class="control">
                 <input type="number" step="any" class="input" min="-50" max="50" placeholder="Temperature"
                        name="temperature">
             </div>
         </div>
-        <div class="field column is-full-mobile is-one-fifth-desktop">
-            <label class="label">Wind Speed</label>
+        <div class="field column is-full-mobile is-one-sixth-desktop">
             <div class="control">
                 <input type="number" step="any" class="input" min="0" max="117" placeholder="Wind Speed"
                        name="windSpeed">
             </div>
         </div>
-        <div class="field column is-full-mobile is-one-fifth-desktop">
-            <label class="label">Wind Direction</label>
+        <div class="field column is-full-mobile is-one-sixth-desktop">
             <div class="control">
                 <input type="number" step="any" class="input" min="0" max="360" placeholder="Wind Direction"
                        name="windDirection">
             </div>
         </div>
-        <div class="field column is-full-mobile is-one-fifth-desktop">
-            <label class="label">Pressure</label>
+        <div class="field column is-full-mobile is-one-sixth-desktop">
             <div class="control">
                 <input type="number" class="input" min="100" max="1050" placeholder="Pressure" name="pressure">
             </div>
         </div>
-    </div>
-    <div class="columns">
-        <div class="column">
-            <button class="button is-link is-info is-fullwidth">Add Reading</button>
+        <div class="field column is-full-mobile is-one-sixth-desktop">
+            <div class="control">
+                <button class="button is-link is-info is-fullwidth">Add Reading</button>
+            </div>
         </div>
     </div>
 </form>
