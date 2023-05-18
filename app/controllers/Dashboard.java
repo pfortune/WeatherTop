@@ -7,15 +7,26 @@ import models.User;
 import play.mvc.Controller;
 
 public class Dashboard extends Controller {
-  public static void index() {
+  public static void index(Integer page) {
     User user = AuthController.getLoggedInUser();
     if (user == null) {
       redirect("/login");
     }
 
-    List<Station> stations = user.stations;
-    render("dashboard.html", stations);
+    if (page == null) {
+      page = 1;
+    }
+
+    List<Station> allStations = user.stations;
+    int pageSize = 3;  // or whatever number you choose
+    int pages = (allStations.size() + pageSize - 1) / pageSize;
+    int start = (page - 1) * pageSize;
+    int end = Math.min(start + pageSize, allStations.size());
+
+    List<Station> stations = allStations.subList(start, end);
+    render("dashboard.html", stations, page, pages);
   }
+
 
   public static void addStation(String title, double latitude, double longitude) {
     if (title == null || title.trim().isEmpty()) {

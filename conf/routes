@@ -12,6 +12,7 @@ GET     /about                                  About.index
 GET     /dashboard                              Dashboard.index
 POST    /dashboard/add                          Dashboard.addStation
 POST    /dashboard/{id}/delete                  Dashboard.deleteStation
+GET     /dashboard/page/{page}                  Dashboard.index
 
 # Station
 GET     /station/{id}                           StationController.viewStation

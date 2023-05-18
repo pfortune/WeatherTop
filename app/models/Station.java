@@ -49,6 +49,15 @@ public class Station extends Model {
   }
 
   /**
+   * Gets the latest weather code for this station.
+   *
+   * @return The latest weather code.
+   */
+  public int getLatestWeatherCode() {
+    return getLatestReading().code;
+  }
+
+  /**
    * Gets the latest weather description for this station.
    *
    * @return A string representing the latest weather condition.
@@ -73,6 +82,15 @@ public class Station extends Model {
    */
   public double getLatestTemperatureCelcius() {
     return getLatestReading().temperature;
+  }
+
+  /**
+   * Gets the latest wind speed in kmh for this station.
+   *
+   * @return The latest wind speed in kmh.
+   */
+  public double getLatestWindSpeed() {
+    return getLatestReading().windSpeed;
   }
 
   /**
