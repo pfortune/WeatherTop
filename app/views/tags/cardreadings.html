@@ -1,164 +1,281 @@
 #{if _station.readings.size() > 0}
-<div class="columns">
-    <div class="column">
-        <article class="message has-background-black">
-            <div class="message-header has-background-black">
-                ${_station.name}
+<section class="section px-5 py-0">
+    <div class="container">
+        <div class="columns is-multiline">
+
+            <div class="column is-4-desktop is-full-tablet">
+                <div class="is-full-height box has-background-dark pb-3">
+
+                    <div class="columns is-gapless is-multiline is-mobile has-text-white">
+                        <div class="column is-full mb-0">
+                            <div class="columns is-mobile is-gapless is-vcentered">
+                                <div class="column is-half is-one-thirds-mobile">
+
+                                    <h4 class="title is-size-3-desktop is-size-5-mobile is-size-5-tablet has-text-weight-bold has-text-white">
+                                        ${_station.name}</h4>
+                                </div>
+                                <div class="column">
+                                    <div class="column has-text-weight-bold has-text-right p-0">
+
+                                        Latitude:
+                                    </div>
+                                    <div class="column has-text-weight-bold has-text-right p-0">
+
+                                        Longitude:
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="column has-text-weight-bold has-text-right py-0 px-2">
+
+                                        ${_station.latitude}
+                                    </div>
+                                    <div class="column has-text-weight-bold has-text-right py-0 px-2">
+
+                                        ${_station.longitude}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="has-image-centered image large-icon">
+                        <img src="/public/images/icons/${_station.getLatestWeatherDescription().toLowerCase().replace(' ', '-')}.svg">
+                        <div class="has-text-centered has-text-white is-size-4 has-text-weight-bold">
+                            ${_station.getLatestWeatherDescription()}
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="message-body">
+
+            <div class="column is-4-desktop">
                 <div class="columns">
-                    <div class="column has-text-white">
-                        ${_station.longitude} <br>
-                        ${_station.latitude}
-                    </div>
                     <div class="column">
-                        <div class="image weather-icon">
-                            <img src="/public/images/icons/compass.svg">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </article>
-    </div>
+                        <div class="card events-card">
+                            <header class="card-header is-shadowless p-2">
+                                <p class="card-header-title is-size-3">
+                                    Stats
+                                </p>
+                            </header>
 
-    <div class="column">
-        <article class="message has-background-black">
-            <div class="message-header has-background-black">
-                Weather
-            </div>
-            <div class="message-body">
-                <div class="columns is-mobile">
-                    <div class="column has-text-white">
-                        ${_station.getLatestWeatherDescription()}
-                    </div>
-                    <div class="column is-full">
-                        <div class="image weather-icon">
-                            <img src="/public/images/icons/${_station.getLatestWeatherDescription().toLowerCase().replace(' ', '-')}.svg">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </article>
-    </div>
-    <div class="column">
-        <article class="message has-background-black">
-            <div class="message-header has-background-black">
-                Temperature
-            </div>
-            <div class="message-body">
-                <div class="columns is-mobile">
-                    <div class="column has-text-white">
-                        <p>
-                            ${_station.getLatestTemperatureCelcius()} °C
-                            <br>
-                            ${_station.getLatestTemperatureFahrenheit()} °F
-                        </p>
-                        <p>
-                            min: ${_station.getMinTemperature()}
-                            <br>
-                            max: ${_station.getMaxTemperature()}
-                            <br>
-                            ${_station.getTemperatureTrend()}
-                            #{if _station.getTemperatureTrend().toLowerCase().equals("increasing")}
-                            <i class="fas fa-arrow-up"></i>
-                            #{/if}
-                            #{if _station.getTemperatureTrend().toLowerCase().equals("decreasing")}
-                            <i class="fas fa-arrow-down"></i>
-                            #{/if}
-                            #{if _station.getTemperatureTrend().toLowerCase().equals("steady")}
-                            <i class="fas fa-arrows-alt-h"></i>
-                            #{/if}
-                        </p>
-                    </div>
-                    <div class="column is-half">
-                        <div class="image weather-icon">
-                            <img src="/public/images/icons/thermometer.svg">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </article>
-    </div>
+                            <header class="card-header is-shadowless">
+                                <p class="card-header-title is-centered">
+                                    Temperature (°C)
+                                </p>
+                            </header>
+                            <div class="card-content">
+                                <div class="columns is-flex">
+                                    <div class="column is-one-third has-text-centered py-0">
+                                        <div class="is-size-4 has-text-weight-bold">
+                                            ${_station.getMinTemperature()}
+                                        </div>
+                                        <div class="is-size-6 has-text-weight-bold is-uppercase">Min</div>
+                                    </div>
+                                    <div class="column is-one-third has-text-centered py-0">
+                                        <div class="is-size-4 has-text-weight-bold">
+                                            ${_station.getMaxTemperature()}
+                                        </div>
+                                        <div class="is-size-6 has-text-weight-bold is-uppercase">Max</div>
+                                    </div>
+                                    <div class="column is-one-third has-text-centered py-0">
+                                        <div class="is-size-4 has-text-weight-bold">
+                                            #{if _station.getTemperatureTrend().toLowerCase().equals("increasing")}
+                                            <i class="fas fa-arrow-up"></i>
+                                            #{/if}
+                                            #{if _station.getTemperatureTrend().toLowerCase().equals("decreasing")}
+                                            <i class="fas fa-arrow-down"></i>
+                                            #{/if}
+                                            #{if _station.getTemperatureTrend().toLowerCase().equals("steady")}
+                                            <i class="fas fa-arrows-alt-h"></i>
+                                            #{/if}
+                                        </div>
+                                    </div>
 
-    <div class="column">
-        <article class="message has-background-black">
-            <div class="message-header has-background-black">
-                Wind
-            </div>
-            <div class="message-body">
-                <div class="columns is-mobile">
-                    <div class="column has-text-white">
-                        <p>
-                            ${_station.getLatestWindBeaufort()} bft <br>
-                            ${_station.getLatestWindDirectionCompass()} <br>
-                            Feels Like<br>
-                            ${_station.getLatestWindChill()} °C<br>
-                        </p>
-                        <p>
-                            min: ${_station.getMinWindSpeed()}
-                            <br>
-                            max: ${_station.getMaxWindSpeed()}
-                            <br>
-                            ${_station.getWindTrend()}
-                            #{if _station.getWindTrend().toLowerCase().equals("increasing")}
-                            <i class="fas fa-arrow-up"></i>
-                            #{/if}
-                            #{if _station.getWindTrend().toLowerCase().equals("decreasing")}
-                            <i class="fas fa-arrow-down"></i>
-                            #{/if}
-                            #{if _station.getWindTrend().toLowerCase().equals("steady")}
-                            <i class="fas fa-arrows-alt-h"></i>
-                            #{/if}
-                        </p>
-                    </div>
-                    <div class="column is-half">
-                        <div class="image weather-icon">
-                            <img src="/public/images/icons/wind-${_station.getLatestWindBeaufort()}.svg">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </article>
-    </div>
-    <div class="column">
-        <article class="message has-background-black">
-            <div class="message-header has-background-black">
-                Pressure
-            </div>
-            <div class="message-body">
-                <div class="columns is-mobile">
-                    <div class="column has-text-white">
-                        <p>
-                            ${_station.getLatestPressure()} hpa
-                        </p>
-                        <p>
-                            min: ${_station.getMinPressure()}
-                            <br>
-                            max: ${_station.getMaxPressure()}
-                            <br>
-                            ${_station.getPressureTrend()}
-                            #{if _station.getPressureTrend().toLowerCase().equals("increasing")}
-                            <i class="fas fa-arrow-up"></i>
-                            #{/if}
-                            #{if _station.getPressureTrend().toLowerCase().equals("decreasing")}
-                            <i class="fas fa-arrow-down"></i>
-                            #{/if}
-                            #{if _station.getPressureTrend().toLowerCase().equals("steady")}
-                            <i class="fas fa-arrows-alt-h"></i>
-                            #{/if}
-                        </p>
-                    </div>
-                    <div class="column is-half">
-                        <div class="image weather-icon">
-                            <img src="/public/images/icons/barometer.svg">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </article>
-    </div>
+                                </div>
+                            </div>
 
-</div>
+                            <header class="card-header is-shadowless">
+                                <p class="card-header-title is-centered">
+                                    Wind Speed (km/h)
+                                </p>
+                            </header>
+
+                            <div class="card-content">
+                                <div class="columns is-flex">
+                                    <div class="column is-one-third has-text-centered py-0">
+                                        <div class="is-size-4 has-text-weight-bold">
+                                            ${_station.getMinWindSpeed()}
+                                        </div>
+                                        <div class="is-size-6 has-text-weight-bold is-uppercase">Min</div>
+                                    </div>
+                                    <div class="column is-one-third has-text-centered py-0">
+                                    <div class="is-size-4 has-text-weight-bold">
+                                        ${_station.getMaxWindSpeed()}
+                                    </div>
+                                    <div class="is-size-6 has-text-weight-bold is-uppercase">Max</div>
+                                </div>
+                                    <div class="column is-one-third has-text-centered py-0">
+                                        <div class="is-size-4 has-text-weight-bold">
+                                            #{if _station.getWindTrend().toLowerCase().equals("increasing")}
+                                            <i class="fas fa-arrow-up"></i>
+                                            #{/if}
+                                            #{if _station.getWindTrend().toLowerCase().equals("decreasing")}
+                                            <i class="fas fa-arrow-down"></i>
+                                            #{/if}
+                                            #{if _station.getWindTrend().toLowerCase().equals("steady")}
+                                            <i class="fas fa-arrows-alt-h"></i>
+                                            #{/if}
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <header class="card-header is-shadowless is-info">
+                                <p class="card-header-title is-centered">
+                                    Pressure (hPa)
+                                </p>
+                            </header>
+
+                            <div class="card-content">
+                                <div class="columns is-flex">
+                                    <div class="column is-one-third has-text-centered py-0">
+                                        <div class="is-size-4 has-text-weight-bold">
+                                            ${_station.getMinPressure()}
+                                        </div>
+                                        <div class="is-size-6 has-text-weight-bold is-uppercase">Min</div>
+                                    </div>
+                                    <div class="column is-one-third has-text-centered py-0">
+                                        <div class="is-size-4 has-text-weight-bold">
+                                            ${_station.getMaxPressure()}
+                                        </div>
+                                        <div class="is-size-6 has-text-weight-bold is-uppercase">Max</div>
+                                    </div>
+                                    <div class="column is-one-third has-text-centered py-0">
+                                        <div class="is-size-4 has-text-weight-bold">
+                                            #{if _station.getPressureTrend().toLowerCase().equals("increasing")}
+                                            <i class="fas fa-arrow-up"></i>
+                                            #{/if}
+                                            #{if _station.getPressureTrend().toLowerCase().equals("decreasing")}
+                                            <i class="fas fa-arrow-down"></i>
+                                            #{/if}
+                                            #{if _station.getPressureTrend().toLowerCase().equals("steady")}
+                                            <i class="fas fa-arrows-alt-h"></i>
+                                            #{/if}
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column is-4-desktop">
+                <div class="columns">
+                    <div class="column">
+                        <div class="is-full-height card events-card">
+                            <header class="card-header is-shadowless p-2">
+                                <p class="card-header-title is-size-3">
+                                    Latest Reading
+                                </p>
+                            </header>
+                            <div class="card-content">
+                                <div class="content">
+                                    <div class="is-fullwidth">
+                                        <table class="table is-fullwidth">
+                                            <tbody>
+                                            <tr>
+                                                <td class="set-width has-background-grey has-text-centered has-text-white is-vcentered has-text-weight-bold p-0"
+                                                    style="width: 15%;">
+                                                    <img src="/public/images/icons/clock.svg"
+                                                         alt="date">
+                                                </td>
+                                                <td
+                                                        class="set-width has-background-grey has-text-white is-vcentered has-text-weight-bold pl-0"
+                                                        style="width: 25%;">Date/Time
+                                                </td>
+                                                <td class="is-vcentered" style="width: 60%;">
+                                                    ${_station.getLatestDate()}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="set-width has-background-grey has-text-centered has-text-white is-vcentered has-text-weight-bold p-0"
+                                                    style="width: 15%;">
+                                                    <img src="/public/images/icons/${_station.getLatestWeatherDescription().toLowerCase().replace(' ', '-')}.svg"
+                                                         alt="weather">
+                                                </td>
+                                                <td
+                                                        class="set-width has-background-grey has-text-white is-vcentered has-text-weight-bold pl-0"
+                                                        style="width: 25%;">Code
+                                                </td>
+                                                <td class="is-vcentered" style="width: 60%;">
+                                                    ${_station.getLatestWeatherCode()} | ${_station.getLatestWeatherDescription()}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                        class="set-width has-background-grey has-text-centered has-text-white is-vcentered has-text-weight-bold p-0"
+                                                        style="width: 10%;">
+                                                    <img src="/public/images/icons/thermometer.svg"
+                                                         alt="temperature">
+                                                </td>
+                                                <td
+                                                        class="set-width has-background-grey has-text-white is-vcentered has-text-weight-bold pl-0"
+                                                        style="width: 30%;">Temperature
+                                                </td>
+                                                <td class="is-vcentered" style="width: 60%;">
+                                                    ${_station.getLatestTemperatureCelcius()} &#176C <br>
+                                                    ${_station.getLatestTemperatureFahrenheit()} &#176F
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                        class="set-width has-background-grey has-text-centered has-text-white is-vcentered has-text-weight-bold p-0"
+                                                        style="width: 10%;">
+                                                    <img src="/public/images/icons/wind-${_station.getLatestWindBeaufort()}.svg"
+                                                         alt="wind">
+                                                </td>
+                                                <td
+                                                        class="set-width has-background-grey has-text-white is-vcentered has-text-weight-bold pl-0"
+                                                        style="width: 30%;">Wind
+                                                </td>
+                                                <td class="is-vcentered" style="width: 60%;">
+                                                    ${_station.getLatestWindSpeed()} km/h |
+                                                    ${_station.getLatestWindBeaufort()} bft <br>
+                                                    Feels Like: ${_station.getLatestWindChill()}&#176C<br>
+                                                    Direction: ${_station.getLatestWindDirectionCompass()}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                        class="set-width has-background-grey has-text-centered has-text-white is-vcentered has-text-weight-bold p-0"
+                                                        style="width: 10%;">
+                                                    <img src="/public/images/icons/barometer.svg" alt="pressure">
+                                                </td>
+                                                <td
+                                                        class="set-width has-background-grey has-text-white is-vcentered has-text-weight-bold pl-0"
+                                                        style="width: 30%;">Pressure
+                                                </td>
+                                                <td class="is-vcentered" style="width: 60%;">
+                                                    ${_station.getLatestPressure()} hPa
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
 #{/if}
 
 #{else}
