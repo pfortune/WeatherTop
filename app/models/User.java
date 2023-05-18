@@ -21,18 +21,14 @@ import java.util.List;
 public class User extends Model {
   @Required
   public String firstname;
-
   @Required
   public String lastname;
-
   @Email
   @Required
   @Column(unique = true)
   public String email;
-
   @Required
   private String password;
-
   @OneToMany(cascade = CascadeType.ALL)
   public List<Station> stations = new ArrayList<Station>();
 

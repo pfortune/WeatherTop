@@ -19,15 +19,6 @@ public class AuthController extends Controller {
     render("login.html");
   }
 
-  //register a new user
-  public static void registerUser(String firstname, String lastname, String email, String password) {
-    User user = new User();
-    validateAndSetUserDetails(user, firstname, lastname, email, password, "/register");
-    session.put("logged_in_userid", user.id);
-    flash("success", "Welcome, " + user.firstname);
-    redirect("/dashboard");
-  }
-
   public static void authenticate(String email, String password) {
     User user = User.findByEmail(email);
     if (user == null) {
@@ -42,6 +33,15 @@ public class AuthController extends Controller {
       flash("error", "Invalid email or password");
       redirect("/login");
     }
+  }
+
+  //register a new user
+  public static void registerUser(String firstname, String lastname, String email, String password) {
+    User user = new User();
+    validateAndSetUserDetails(user, firstname, lastname, email, password, "/register");
+    session.put("logged_in_userid", user.id);
+    flash("success", "Welcome, " + user.firstname);
+    redirect("/dashboard");
   }
 
   public static void updateAccount(String firstname, String lastname, String email, String password) {
