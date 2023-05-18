@@ -45,7 +45,9 @@
         <a href="/station/${s.id}" class="card-footer-item has-background-success has-text-white">
             <span>View Station</span>
         </a>
-        <a class="card-footer-item has-background-danger has-text-white">
+        <a id="delete" class="card-footer-item has-background-danger has-text-white"
+           data-link="/dashboard/${s.id}/delete"
+        >
             <div class="container is-fullwidth has-text-centered">
                 <span>Delete Station</span>
             </div>
@@ -67,4 +69,47 @@
     <button id="confirmDelete">Yes, delete</button>
     <button id="cancelDelete">No, cancel</button>
 </dialog>
+
+<script>
+    const deleteDialog = document.querySelector('#confirmDeleteDialog');
+    const deleteLink = document.querySelector('#delete');
+    const confirmButton = document.querySelector('#confirmDelete');
+
+    let deleteUrl;
+
+    deleteLink.addEventListener('click', (e) => {
+        e.preventDefault();  // Stop the link from navigating anywhere
+        deleteDialog.showModal();  // This function is native to the <dialog> element
+        deleteUrl = deleteLink.dataset.link; // Get the URL from the data-link attribute
+    });
+
+    confirmButton.addEventListener('click', () => {
+        if (!deleteUrl) {
+            return;
+        }
+
+        fetch(deleteUrl, {
+            method: 'POST',
+        })
+            .then(response => {
+                location.reload();
+            })
+            .catch(error => {
+                console.error(`Error: ${error}`);
+            })
+            .finally(() => {
+                deleteDialog.close(); // Close the dialog
+            });
+    });
+
+    // Get the cancel button
+    const cancelButton = document.querySelector('#cancelDelete');
+
+    // Close the dialog when the cancel button is clicked
+    cancelButton.addEventListener('click', () => {
+        deleteDialog.close();
+    });
+</script>
+
+
 
