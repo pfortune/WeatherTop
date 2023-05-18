@@ -108,11 +108,11 @@
                                         <div class="is-size-6 has-text-weight-bold is-uppercase">Min</div>
                                     </div>
                                     <div class="column is-one-third has-text-centered py-0">
-                                    <div class="is-size-4 has-text-weight-bold">
-                                        ${_station.getMaxWindSpeed()}
+                                        <div class="is-size-4 has-text-weight-bold">
+                                            ${_station.getMaxWindSpeed()}
+                                        </div>
+                                        <div class="is-size-6 has-text-weight-bold is-uppercase">Max</div>
                                     </div>
-                                    <div class="is-size-6 has-text-weight-bold is-uppercase">Max</div>
-                                </div>
                                     <div class="column is-one-third has-text-centered py-0">
                                         <div class="is-size-4 has-text-weight-bold">
                                             #{if _station.getWindTrend().toLowerCase().equals("increasing")}
@@ -212,7 +212,8 @@
                                                         style="width: 25%;">Code
                                                 </td>
                                                 <td class="is-vcentered" style="width: 60%;">
-                                                    ${_station.getLatestWeatherCode()} | ${_station.getLatestWeatherDescription()}
+                                                    ${_station.getLatestWeatherCode()} |
+                                                    ${_station.getLatestWeatherDescription()}
                                                 </td>
                                             </tr>
                                             <tr>

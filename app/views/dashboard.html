@@ -70,8 +70,8 @@
 
 #{if pages > 1}
 <nav class="pagination" role="navigation" aria-label="pagination">
-    <a href="/dashboard/page/${page - 1}" class="pagination-previous" ${page == 1 ? "disabled" : ""}>Previous</a>
-    <a href="/dashboard/page/${page + 1}" class="pagination-next" ${page == pages ? "disabled" : ""}>Next</a>
+    <a href="/dashboard/page/${page - 1}" class="pagination-previous" ${page== 1 ? "disabled" : ""}>Previous</a>
+    <a href="/dashboard/page/${page + 1}" class="pagination-next" ${page== pages ? "disabled" : ""}>Next</a>
 </nav>
 #{/if}
 
