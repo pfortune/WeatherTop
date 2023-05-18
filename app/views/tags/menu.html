@@ -1,7 +1,8 @@
 <nav class="navbar is-info is-inverted">
     <div class="navbar-brand">
-        <a id="start" class="navbar-item" href="/"> Home </a>
-
+        #{if session.get('logged_in_userid') == null}
+            <a id="start" class="navbar-item" href="/"> Home </a>
+        #{/if}
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasic">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
@@ -10,7 +11,6 @@
     </div>
     <div id="navbarBasic" class="navbar-menu">
         <div class="navbar-end">
-
             #{if session.get('logged_in_userid') == null}
             <a id="login" class="navbar-item" href="/login">Login</a>
             <a id="register" class="navbar-item" href="/register">Register</a>
