@@ -32,9 +32,12 @@
             ${reading.pressure}
         </td>
         <td>
-            <form action="/station/${_station.id}/delete/${reading.id}" method="POST">
-                <button class="button is-danger is-small">Delete</button>
-            </form>
+            <a id="delete" data-link="/station/${_station.id}/delete/${reading.id}">
+                <div class="buttons">
+                    <button class="button is-danger">Delete</button>
+                </div>
+            </a>
+        </td>
     </tr>
     #{/list}
     </tbody>
