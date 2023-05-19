@@ -2,6 +2,7 @@
     <div class="navbar-brand">
         #{if session.get('logged_in_userid') == null}
             <a id="start" class="navbar-item" href="/"> Home </a>
+            <a id="about" class="navbar-item" href="/about">About</a>
         #{/if}
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasic">
             <span aria-hidden="true"></span>
@@ -12,13 +13,14 @@
     <div id="navbarBasic" class="navbar-menu">
         <div class="navbar-end">
             #{if session.get('logged_in_userid') == null}
+
             <a id="login" class="navbar-item" href="/login">Login</a>
             <a id="register" class="navbar-item" href="/register">Register</a>
             #{/if}
             #{else}
             <a id="dashboard" class="navbar-item" href="/dashboard">Dashboard</a>
             <a id="account" class="navbar-item" href="/account">Profile</a>
-            <a id="about" class="navbar-item" href="/about">About</a>
+
             <a id="logout" class="navbar-item" href="/logout">Logout</a>
             #{/else}
         </div>
