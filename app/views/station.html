@@ -21,10 +21,6 @@ marker=${station.latitude}%2C${station.longitude}">
 </div>
 #{/if}
 
-<div class="content box">
-    #{cardreadings station:station/}
-</div>
-
 <form class="box" action="/station/${station.id}/add" method="POST">
     <div class="columns is-multiline is-mobile">
         <div class="field column is-full-mobile is-one-sixth-desktop">
@@ -59,7 +55,7 @@ marker=${station.latitude}%2C${station.longitude}">
         <div class="field column is-full-mobile is-one-sixth-desktop">
             <div class="control">
                 <input type="number" step="any" class="input" min="0" max="360" placeholder="Wind Direction"
-                       name="windDirection" required
+                       name="windDirection" required>
             </div>
         </div>
         <div class="field column is-full-mobile is-one-sixth-desktop">
@@ -76,12 +72,12 @@ marker=${station.latitude}%2C${station.longitude}">
 </form>
 
 <div class="content box">
+    <h1 class="title">
+        ${station.name}
+    </h1>
+    #{cardreadings station:station/}
     #{listreadings station:station/}
 </div>
-
-
-
-
 
 <dialog id="confirmDeleteDialog">
     <p>Are you sure you want to delete this station?</p>
