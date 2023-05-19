@@ -67,15 +67,17 @@
 
 <script>
     const deleteDialog = document.querySelector('#confirmDeleteDialog');
-    const deleteLink = document.querySelector('#delete');
+    const deleteLinks = document.querySelectorAll('#delete');
     const confirmButton = document.querySelector('#confirmDelete');
 
     let deleteUrl;
 
-    deleteLink.addEventListener('click', (e) => {
-        e.preventDefault();  // Stop the link from navigating anywhere
-        deleteDialog.showModal();  // This function is native to the <dialog> element
-        deleteUrl = deleteLink.dataset.link; // Get the URL from the data-link attribute
+    deleteLinks.forEach((deleteLink) => {
+        deleteLink.addEventListener('click', (e) => {
+            e.preventDefault();  // Stop the link from navigating anywhere
+            deleteDialog.showModal();  // This function is native to the <dialog> element
+            deleteUrl = deleteLink.dataset.link; // Get the URL from the data-link attribute
+        });
     });
 
     confirmButton.addEventListener('click', () => {
@@ -87,7 +89,7 @@
             method: 'POST',
         })
             .then(response => {
-                location.reload();
+                window.location.assign("/dashboard");
             })
             .catch(error => {
                 console.error(`Error: ${error}`);
@@ -105,6 +107,3 @@
         deleteDialog.close();
     });
 </script>
-
-
-
