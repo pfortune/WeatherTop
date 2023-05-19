@@ -22,7 +22,7 @@ marker=${station.latitude}%2C${station.longitude}">
 #{/if}
 
 <form class="box" action="/station/${station.id}/add" method="POST">
-    <div class="columns is-multiline is-mobile">
+    <div class="columns is-mobile">
         <div class="field column is-full-mobile is-one-sixth-desktop">
             <div class="control">
                 <div class="select is-fullwidth">
@@ -87,15 +87,17 @@ marker=${station.latitude}%2C${station.longitude}">
 
 <script>
     const deleteDialog = document.querySelector('#confirmDeleteDialog');
-    const deleteLink = document.querySelector('#delete');
+    const deleteLinks = document.querySelectorAll('#delete');
     const confirmButton = document.querySelector('#confirmDelete');
 
     let deleteUrl;
 
-    deleteLink.addEventListener('click', (e) => {
-        e.preventDefault();  // Stop the link from navigating anywhere
-        deleteDialog.showModal();  // This function is native to the <dialog> element
-        deleteUrl = deleteLink.dataset.link; // Get the URL from the data-link attribute
+    deleteLinks.forEach((deleteLink) => {
+        deleteLink.addEventListener('click', (e) => {
+            e.preventDefault();  // Stop the link from navigating anywhere
+            deleteDialog.showModal();  // This function is native to the <dialog> element
+            deleteUrl = deleteLink.dataset.link; // Get the URL from the data-link attribute
+        });
     });
 
     confirmButton.addEventListener('click', () => {
@@ -107,7 +109,7 @@ marker=${station.latitude}%2C${station.longitude}">
             method: 'POST',
         })
             .then(response => {
-                location.reload();
+                window.location.assign(`/station/${station.id}`);
             })
             .catch(error => {
                 console.error(`Error: ${error}`);
