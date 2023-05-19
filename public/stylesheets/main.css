@@ -42,3 +42,9 @@ button.icon:hover {
 button.icon {
     font-size: 16px;
 }
+
+#confirmDeleteDialog form {
+    display: inline-block;
+}
+
+
