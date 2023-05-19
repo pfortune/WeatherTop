@@ -22,11 +22,7 @@ marker=${station.latitude}%2C${station.longitude}">
 #{/if}
 
 <div class="content box">
-    <h1 class="title">
-        ${station.name}
-    </h1>
     #{cardreadings station:station/}
-    #{listreadings station:station/}
 </div>
 
 <form class="box" action="/station/${station.id}/add" method="POST">
@@ -78,6 +74,12 @@ marker=${station.latitude}%2C${station.longitude}">
         </div>
     </div>
 </form>
+
+<div class="content box">
+    #{listreadings station:station/}
+</div>
+
+
 
 
 
