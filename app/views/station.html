@@ -109,7 +109,7 @@ marker=${station.latitude}%2C${station.longitude}">
             method: 'POST',
         })
             .then(response => {
-                window.location.assign(`/station/${station.id}`);
+                window.location.assign(`https://weathertop.ie/station/${station.id}`);
             })
             .catch(error => {
                 console.error(`Error: ${error}`);
