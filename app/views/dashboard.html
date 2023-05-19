@@ -53,10 +53,15 @@
 
 #{if pages > 1}
 <nav class="pagination" role="navigation" aria-label="pagination">
-    <a href="/dashboard/page/${page - 1}" class="pagination-previous" ${page== 1 ? "disabled" : ""}>Previous</a>
-    <a href="/dashboard/page/${page + 1}" class="pagination-next" ${page== pages ? "disabled" : ""}>Next</a>
+    <a href="${page > 1 ? '/dashboard/page/' + (page - 1) : '#'}"
+       class="pagination-previous"
+       style="${page == 1 ? 'visibility: hidden;' : ''}">Previous</a>
+    <a href="${page < pages ? '/dashboard/page/' + (page + 1) : '#'}"
+       class="pagination-next"
+       style="${page == pages ? 'visibility: hidden;' : ''}">Next</a>
 </nav>
 #{/if}
+
 
 
 <dialog id="confirmDeleteDialog">
