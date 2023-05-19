@@ -81,14 +81,18 @@ marker=${station.latitude}%2C${station.longitude}">
 
 <dialog id="confirmDeleteDialog">
     <p>Are you sure you want to delete this station?</p>
-    <button id="confirmDelete">Yes, delete</button>
+    <form id="deleteForm" method="POST" action="">
+        <button id="confirmDelete" type="submit">Yes, delete</button>
+    </form>
     <button id="cancelDelete">No, cancel</button>
 </dialog>
+
 
 <script>
     const deleteDialog = document.querySelector('#confirmDeleteDialog');
     const deleteLinks = document.querySelectorAll('#delete');
     const confirmButton = document.querySelector('#confirmDelete');
+    const deleteForm = document.querySelector('#deleteForm');
 
     let deleteUrl;
 
@@ -100,23 +104,12 @@ marker=${station.latitude}%2C${station.longitude}">
         });
     });
 
-    confirmButton.addEventListener('click', () => {
+    deleteForm.addEventListener('submit', (e) => {
         if (!deleteUrl) {
-            return;
+            e.preventDefault();  // Prevent the form from being submitted
+        } else {
+            deleteForm.action = deleteUrl;  // Set the action of the form to the delete URL
         }
-
-        fetch(deleteUrl, {
-            method: 'POST',
-        })
-            .then(response => {
-                window.location.assign(`https://weathertop.ie/station/${station.id}`);
-            })
-            .catch(error => {
-                console.error(`Error: ${error}`);
-            })
-            .finally(() => {
-                deleteDialog.close(); // Close the dialog
-            });
     });
 
     // Get the cancel button
