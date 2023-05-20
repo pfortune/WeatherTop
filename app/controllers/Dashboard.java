@@ -7,7 +7,16 @@ import models.Station;
 import models.User;
 import play.mvc.Controller;
 
+/**
+ * The controller for the user's dashboard.
+ * It provides functionality such as listing stations, adding a station and deleting a station.
+ */
 public class Dashboard extends Controller {
+  /**
+   * Display stations sorted alphabetically. Pagination is also applied.
+   *
+   * @param page the page number to display, null defaults to the first page.
+   */
   public static void index(Integer page) {
     User user = AuthController.getLoggedInUser();
     if (user == null) {
@@ -29,12 +38,24 @@ public class Dashboard extends Controller {
     render("dashboard.html", stations, page, pages);
   }
 
-
+  /**
+   * Sort the stations list alphabetically
+   *
+   * @param stations list of stations to be sorted
+   * @return the sorted list of stations
+   */
   public static List<Station> sortStations(List<Station> stations) {
     stations.sort(Comparator.comparing(Station::getName, String.CASE_INSENSITIVE_ORDER));
     return stations;
   }
 
+  /**
+   * Add a new station
+   *
+   * @param title     the name of the station
+   * @param latitude  the latitude of the station
+   * @param longitude the longitude of the station
+   */
   public static void addStation(String title, double latitude, double longitude) {
     if (title == null || title.trim().isEmpty()) {
       flash("error", "Station name cannot be empty");
@@ -60,6 +81,11 @@ public class Dashboard extends Controller {
     }
   }
 
+  /**
+   * Delete a station
+   *
+   * @param id the id of the station to be deleted
+   */
   public static void deleteStation(Long id) {
     User user = AuthController.getLoggedInUser();
     if (user == null) {

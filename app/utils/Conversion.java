@@ -1,5 +1,9 @@
 package utils;
 
+/**
+ * A utility class that provides conversion operations
+ * for various weather related values.
+ */
 public class Conversion {
 
   /**
@@ -60,6 +64,12 @@ public class Conversion {
     return "Invalid Beaufort value";
   }
 
+  /**
+   * Converts a wind direction in degrees to the corresponding compass direction.
+   *
+   * @param windDirection Wind direction in degrees
+   * @return The corresponding compass direction
+   */
   public static String windDirectionToCompass(double windDirection) {
     String[] compassDirections = {
         "North", "North Northeast", "Northeast", "East Northeast", "East", "East Southeast", "Southeast", "South Southeast",
@@ -72,6 +82,13 @@ public class Conversion {
     return compassDirections[index];
   }
 
+  /**
+   * Calculates wind chill using the temperature and wind speed.
+   *
+   * @param temperature The temperature in degrees Celsius
+   * @param windSpeed The wind speed in km/h
+   * @return The wind chill in degrees Celsius
+   */
   public static double calculateWindChill(double temperature, double windSpeed) {
     return roundToTwoDecimalPlaces(
         13.12
@@ -81,16 +98,21 @@ public class Conversion {
     );
   }
 
-
+  /**
+   * Rounds a decimal value to two decimal places.
+   *
+   * @param value The decimal value to be rounded
+   * @return The rounded decimal value
+   */
   public static double roundToTwoDecimalPlaces(double value) {
     return Math.round(value * 100.0) / 100.0;
   }
 
   /**
-   * Returns the description corresponding to a Weather code.
+   * Converts a weather code to a description of the weather condition.
    *
-   * @param weatherCode Weather code value (100 - 800)
-   * @return Description of the Weather code value
+   * @param weatherCode The code representing a weather condition
+   * @return The description of the weather condition
    */
   public static String weatherCodeToCondition(int weatherCode) {
     switch (weatherCode) {

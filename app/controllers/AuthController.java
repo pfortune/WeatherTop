@@ -4,7 +4,14 @@ import models.User;
 import play.Logger;
 import play.mvc.Controller;
 
+/**
+ * The controller for authentication.
+ * It provides functionality such as registration, login, logout, and account update.
+ */
 public class AuthController extends Controller {
+  /**
+   * Display the registration page.
+   */
   public static void register() {
     if (getLoggedInUser() != null) {
       redirect("/dashboard");
@@ -12,6 +19,9 @@ public class AuthController extends Controller {
     render("register.html");
   }
 
+  /**
+   * Display the login page.
+   */
   public static void login() {
     if (getLoggedInUser() != null) {
       redirect("/dashboard");
@@ -19,6 +29,12 @@ public class AuthController extends Controller {
     render("login.html");
   }
 
+  /**
+   * Authenticate a user with provided email and password.
+   *
+   * @param email    the email of the user
+   * @param password the password of the user
+   */
   public static void authenticate(String email, String password) {
     User user = User.findByEmail(email);
     if (user == null) {
@@ -35,7 +51,14 @@ public class AuthController extends Controller {
     }
   }
 
-  //register a new user
+  /**
+   * Register a new user with provided details.
+   *
+   * @param firstname the first name of the user
+   * @param lastname  the last name of the user
+   * @param email     the email of the user
+   * @param password  the password of the user
+   */
   public static void registerUser(String firstname, String lastname, String email, String password) {
     User user = new User();
     validateAndSetUserDetails(user, firstname, lastname, email, password, "/register");
@@ -44,6 +67,14 @@ public class AuthController extends Controller {
     redirect("/dashboard");
   }
 
+  /**
+   * Update the logged in user's account with provided details.
+   *
+   * @param firstname the new first name of the user
+   * @param lastname  the new last name of the user
+   * @param email     the new email of the user
+   * @param password  the new password of the user
+   */
   public static void updateAccount(String firstname, String lastname, String email, String password) {
     if (getLoggedInUser() == null) {
       redirect("/login");
@@ -54,6 +85,16 @@ public class AuthController extends Controller {
     redirect("/account");
   }
 
+  /**
+   * Validate user details and save to the provided User object.
+   *
+   * @param user        the User object to save the details to
+   * @param firstname   the first name of the user
+   * @param lastname    the last name of the user
+   * @param email       the email of the user
+   * @param password    the password of the user
+   * @param redirectUrl the URL to redirect to in case of validation failure
+   */
   private static void validateAndSetUserDetails(User user, String firstname, String lastname, String email, String password, String redirectUrl) {
     if (firstname == null || firstname.trim().isEmpty()) {
       flash("error", "First name cannot be empty");
@@ -83,6 +124,9 @@ public class AuthController extends Controller {
     }
   }
 
+  /**
+   * Display the logged in user's account page.
+   */
   public static void showAccount() {
     if (getLoggedInUser() == null) {
       redirect("/login");
@@ -91,6 +135,11 @@ public class AuthController extends Controller {
     render("account.html", user);
   }
 
+  /**
+   * Get the currently logged in user.
+   *
+   * @return the currently logged in user
+   */
   public static User getLoggedInUser() {
     String userId = session.get("logged_in_userid");
     if (userId != null) {
@@ -99,6 +148,9 @@ public class AuthController extends Controller {
     return null;
   }
 
+  /**
+   * Log out the currently logged in user.
+   */
   public static void logout() {
     session.clear();
     flash("success", "You've been logged out");

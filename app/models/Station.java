@@ -80,7 +80,7 @@ public class Station extends Model {
    *
    * @return The latest temperature in Celsius.
    */
-  public double getLatestTemperatureCelcius() {
+  public double getLatestTemperaturecelsius() {
     return getLatestReading().temperature;
   }
 
@@ -321,6 +321,11 @@ public class Station extends Model {
     }
   }
 
+  /**
+   * Gets the name of this station.
+   *
+   * @return The station name.
+   */
   public String getName() {
     return name;
   }
