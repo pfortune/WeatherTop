@@ -3,9 +3,9 @@
     <tr>
         <th>Date/Time</th>
         <th>Weather Code</th>
-        <th>Temperature °C</th>
-        <th>Wind Speed (km/h)</th>
-        <th>Wind Direction (°)</th>
+        <th>Temperature</th>
+        <th>Wind Speed/Chill</th>
+        <th>Wind Direction</th>
         <th>Pressure</th>
         <th>Delete</th>
     </tr>
@@ -17,16 +17,20 @@
             ${reading.date}
         </td>
         <td>
-            ${reading.code}
+            ${reading.code} <br>
+            ${utils.Conversion.weatherCodeToCondition(reading.code)}
+
         </td>
         <td>
-            ${reading.temperature}
+            ${reading.temperature} °C <br>
+            ${utils.Conversion.celsiusToFahrenheit(reading.temperature)} °F
         </td>
         <td>
-            ${reading.windSpeed}
+            ${reading.windSpeed} kmh | <span title="${utils.Conversion.beaufortDescription(utils.Conversion.kmhToBeaufort(reading.windSpeed))}">${utils.Conversion.kmhToBeaufort(reading.windSpeed)} bft</span><br>
+            ${utils.Conversion.calculateWindChill(reading.temperature, reading.windSpeed)} °C
         </td>
         <td>
-            ${reading.windDirection}
+            <span title="${utils.Conversion.windDirectionToCompass(reading.windDirection)}">${reading.windDirection}</span>
         </td>
         <td>
             ${reading.pressure}
