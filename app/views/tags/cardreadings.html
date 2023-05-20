@@ -232,7 +232,8 @@
                                         </td>
                                         <td class="is-vcentered" style="width: 60%;">
                                             ${_station.getLatestWindSpeed()} km/h |
-                                            ${_station.getLatestWindBeaufort()} bft <br>
+
+                                            <span title="${utils.Conversion.beaufortDescription(_station.getLatestWindBeaufort())}">${_station.getLatestWindBeaufort()} bft</span> <br>
                                             Feels Like: ${_station.getLatestWindChill()}&#176C<br>
                                             Direction: ${_station.getLatestWindDirectionCompass()}
                                         </td>
