@@ -26,7 +26,8 @@
             ${utils.Conversion.celsiusToFahrenheit(reading.temperature)} °F
         </td>
         <td>
-            ${reading.windSpeed} kmh | <span title="${utils.Conversion.beaufortDescription(utils.Conversion.kmhToBeaufort(reading.windSpeed))}">${utils.Conversion.kmhToBeaufort(reading.windSpeed)} bft</span><br>
+            ${reading.windSpeed} kmh | <span
+                title="${utils.Conversion.beaufortDescription(utils.Conversion.kmhToBeaufort(reading.windSpeed))}">${utils.Conversion.kmhToBeaufort(reading.windSpeed)} bft</span><br>
             ${utils.Conversion.calculateWindChill(reading.temperature, reading.windSpeed)} °C
         </td>
         <td>

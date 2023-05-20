@@ -3,6 +3,7 @@
 
 #{menu id:"about"/}
 
+#{if session.get('logged_in_userid') == null}
 <div class="content box">
     <p class="title">
         About WeatherTop Inc.
@@ -50,3 +51,75 @@
         efficient, and enjoyable.
     </p>
 </div>
+#{/if}
+#{else}
+
+<div class="content box">
+    <p class="title has-text-centered">
+        About Your Weather Station
+    </p>
+    <p>To enhance the WeatherTop 1000 experience, we have developed this web companion application, which allows users
+        to
+        access their weather data online. This application offers a dashboard view of meteorological readings, enabling
+        users to monitor multiple weather stations, view historical data, and gain valuable insights into local weather
+        patterns.</p>
+
+    <section class="section">
+        <h1 class="title has-text-centered">Effortlessly Add New Weather Stations</h1>
+        <img class="image has-image-centered" src="/public/images/about/1.jpg" alt="WeatherTop 1000">
+        <h3 class="subtitle">
+            In just a few clicks, you can add new weather stations to your dashboard. This streamlined process makes
+            it easy for you to expand your network of weather data points, providing a more comprehensive understanding
+            of your local weather patterns.
+        </h3>
+    </section>
+
+    <section class="section">
+        <h1 class="title has-text-centered">Manage Stations & Readings With Ease</h1>
+        <img class="image has-image-centered" src="/public/images/about/4.jpg" alt="WeatherTop 1000">
+        <h3 class="subtitle">
+            Our user-friendly interface allows you to view and manage your stations and readings all in one place. This
+            simple yet effective management tool ensures you can keep track of your data effortlessly.
+        </h3>
+    </section>
+
+    <section class="section">
+        <h1 class="title has-text-centered">Accidental Deletion Safeguards in Place</h1>
+        <img class="image has-image-centered" src="/public/images/about/3.jpg" alt="WeatherTop 1000">
+        <h3 class="subtitle">
+            We understand that mistakes happen. That's why we've incorporated safeguards to prevent accidental deletion
+            of your valuable data. You can trust that your weather data is secure with us.
+        </h3>
+    </section>
+
+    <section class="section">
+        <h1 class="title has-text-centered">Visualize Your Station's Location on Map</h1>
+        <img class="image has-image-centered" src="/public/images/about/5.jpg" alt="WeatherTop 1000">
+        <h3 class="subtitle">
+            Want to see where your station is located geographically? With our map view, you can visualise your
+            station's location in a glance, adding an extra dimension to your weather monitoring.
+        </h3>
+    </section>
+
+    <section class="section">
+        <h1 class="title has-text-centered">Delve Into Comprehensive Weather Statistics</h1>
+        <img class="image has-image-centered" src="/public/images/about/2.jpg" alt="WeatherTop 1000">
+        <h3 class="subtitle">
+            Our platform provides a rich array of weather statistics, enabling you to gain deep insights into your
+            local weather patterns. These include temperature trends, wind speed data, and much more.
+        </h3>
+    </section>
+
+    <section class="section">
+        <h1 class="title has-text-centered">Explore Detailed Readings in Tabular Format</h1>
+        <img class="image has-image-centered" src="/public/images/about/6.jpg" alt="WeatherTop 1000">
+        <h3 class="subtitle">
+            To facilitate easy reading and comparison, your weather data is presented in a clear and organized tabular
+            format. This allows you to review and analyse your readings in detail, helping you to make sense of your
+            weather data.
+        </h3>
+    </section>
+</div>
+
+
+#{/else}
