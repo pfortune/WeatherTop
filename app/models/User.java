@@ -51,6 +51,10 @@ public class User extends Model {
     setPassword(password);
   }
 
+  public User() {
+
+  }
+
   /**
    * Finds a user by their email address.
    * @param email The email to search for.
