@@ -3,7 +3,7 @@
     <div class="container">
         <div class="columns is-multiline">
             <div class="column is-4-desktop">
-                <div class="is-full-height box has-background-dark pb-3">
+                <div class="box has-background-dark pb-3">
                     <div class="columns is-gapless is-multiline is-mobile has-text-white">
                         <div class="column is-full mb-0">
                             <div class="columns is-mobile is-gapless is-vcentered">
@@ -162,101 +162,97 @@
                 </div>
             </div>
 
-            <div class="column is-4-desktop">
-                <div class="columns">
-                    <div class="column">
-                        <div class="card events-card">
-                            <header class="card-header has-thin-border-bottom is-shadowless p-2">
-                                <p class="card-header-title is-size-3">
-                                    Latest Reading
-                                </p>
-                            </header>
-                            <div class="card-content">
-                                <div class="content">
-                                    <div class="is-fullwidth">
-                                        <table class="table is-fullwidth">
-                                            <tbody>
-                                            <tr>
-                                                <td class="set-width has-background-grey-dark has-text-centered has-text-white is-vcentered has-text-weight-bold p-0"
-                                                    style="width: 15%;">
-                                                    <img src="/public/images/icons/clock.svg"
-                                                         alt="date">
-                                                </td>
-                                                <td
-                                                        class="set-width has-background-grey-dark has-text-white is-vcentered has-text-weight-bold pl-0"
-                                                        style="width: 25%;">Date/Time
-                                                </td>
-                                                <td class="is-vcentered" style="width: 60%;">
-                                                    ${_station.getLatestDate()}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="set-width has-background-grey-dark has-text-centered has-text-white is-vcentered has-text-weight-bold p-0"
-                                                    style="width: 15%;">
-                                                    <img src="/public/images/icons/${_station.getLatestWeatherDescription().toLowerCase().replace(' ', '-')}.svg"
-                                                         alt="weather">
-                                                </td>
-                                                <td
-                                                        class="set-width has-background-grey-dark has-text-white is-vcentered has-text-weight-bold pl-0"
-                                                        style="width: 25%;">Weather
-                                                </td>
-                                                <td class="is-vcentered" style="width: 60%;">
-                                                    ${_station.getLatestWeatherCode()} |
-                                                    ${_station.getLatestWeatherDescription()}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td
-                                                        class="set-width has-background-grey-dark has-text-centered has-text-white is-vcentered has-text-weight-bold p-0"
-                                                        style="width: 10%;">
-                                                    <img src="/public/images/icons/thermometer.svg"
-                                                         alt="temperature">
-                                                </td>
-                                                <td
-                                                        class="set-width has-background-grey-dark has-text-white is-vcentered has-text-weight-bold pl-0"
-                                                        style="width: 30%;">Temperature
-                                                </td>
-                                                <td class="is-vcentered" style="width: 60%;">
-                                                    ${_station.getLatestTemperatureCelcius()} &#176C <br>
-                                                    ${_station.getLatestTemperatureFahrenheit()} &#176F
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td
-                                                        class="set-width has-background-grey-dark has-text-centered has-text-white is-vcentered has-text-weight-bold p-0"
-                                                        style="width: 10%;">
-                                                    <img src="/public/images/icons/wind-${_station.getLatestWindBeaufort()}.svg"
-                                                         alt="wind">
-                                                </td>
-                                                <td
-                                                        class="set-width has-background-grey-dark has-text-white is-vcentered has-text-weight-bold pl-0"
-                                                        style="width: 30%;">Wind
-                                                </td>
-                                                <td class="is-vcentered" style="width: 60%;">
-                                                    ${_station.getLatestWindSpeed()} km/h |
-                                                    ${_station.getLatestWindBeaufort()} bft <br>
-                                                    Feels Like: ${_station.getLatestWindChill()}&#176C<br>
-                                                    Direction: ${_station.getLatestWindDirectionCompass()}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td
-                                                        class="set-width has-background-grey-dark has-text-centered has-text-white is-vcentered has-text-weight-bold p-0"
-                                                        style="width: 10%;">
-                                                    <img src="/public/images/icons/barometer.svg" alt="pressure">
-                                                </td>
-                                                <td
-                                                        class="set-width has-background-grey-dark has-text-white is-vcentered has-text-weight-bold pl-0"
-                                                        style="width: 30%;">Pressure
-                                                </td>
-                                                <td class="is-vcentered" style="width: 60%;">
-                                                    ${_station.getLatestPressure()} hPa
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
+            <div class="column is-flex is-4-desktop">
+                <div class="card events-card">
+                    <header class="card-header has-thin-border-bottom is-shadowless p-2">
+                        <p class="card-header-title is-size-3">
+                            Latest Reading
+                        </p>
+                    </header>
+                    <div class="card-content">
+                        <div class="content">
+                            <div class="is-fullwidth">
+                                <table class="table is-fullwidth">
+                                    <tbody>
+                                    <tr>
+                                        <td class="set-width has-background-grey-dark has-text-centered has-text-white is-vcentered has-text-weight-bold p-0"
+                                            style="width: 15%;">
+                                            <img src="/public/images/icons/clock.svg"
+                                                 alt="date">
+                                        </td>
+                                        <td
+                                                class="set-width has-background-grey-dark has-text-white is-vcentered has-text-weight-bold pl-0"
+                                                style="width: 25%;">Date/Time
+                                        </td>
+                                        <td class="is-vcentered" style="width: 60%;">
+                                            ${_station.getLatestDate()}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="set-width has-background-grey-dark has-text-centered has-text-white is-vcentered has-text-weight-bold p-0"
+                                            style="width: 15%;">
+                                            <img src="/public/images/icons/${_station.getLatestWeatherDescription().toLowerCase().replace(' ', '-')}.svg"
+                                                 alt="weather">
+                                        </td>
+                                        <td
+                                                class="set-width has-background-grey-dark has-text-white is-vcentered has-text-weight-bold pl-0"
+                                                style="width: 25%;">Weather
+                                        </td>
+                                        <td class="is-vcentered" style="width: 60%;">
+                                            ${_station.getLatestWeatherCode()} |
+                                            ${_station.getLatestWeatherDescription()}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                                class="set-width has-background-grey-dark has-text-centered has-text-white is-vcentered has-text-weight-bold p-0"
+                                                style="width: 10%;">
+                                            <img src="/public/images/icons/thermometer.svg"
+                                                 alt="temperature">
+                                        </td>
+                                        <td
+                                                class="set-width has-background-grey-dark has-text-white is-vcentered has-text-weight-bold pl-0"
+                                                style="width: 30%;">Temperature
+                                        </td>
+                                        <td class="is-vcentered" style="width: 60%;">
+                                            ${_station.getLatestTemperatureCelcius()} &#176C <br>
+                                            ${_station.getLatestTemperatureFahrenheit()} &#176F
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                                class="set-width has-background-grey-dark has-text-centered has-text-white is-vcentered has-text-weight-bold p-0"
+                                                style="width: 10%;">
+                                            <img src="/public/images/icons/wind-${_station.getLatestWindBeaufort()}.svg"
+                                                 alt="wind">
+                                        </td>
+                                        <td
+                                                class="set-width has-background-grey-dark has-text-white is-vcentered has-text-weight-bold pl-0"
+                                                style="width: 30%;">Wind
+                                        </td>
+                                        <td class="is-vcentered" style="width: 60%;">
+                                            ${_station.getLatestWindSpeed()} km/h |
+                                            ${_station.getLatestWindBeaufort()} bft <br>
+                                            Feels Like: ${_station.getLatestWindChill()}&#176C<br>
+                                            Direction: ${_station.getLatestWindDirectionCompass()}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                                class="set-width has-background-grey-dark has-text-centered has-text-white is-vcentered has-text-weight-bold p-0"
+                                                style="width: 10%;">
+                                            <img src="/public/images/icons/barometer.svg" alt="pressure">
+                                        </td>
+                                        <td
+                                                class="set-width has-background-grey-dark has-text-white is-vcentered has-text-weight-bold pl-0"
+                                                style="width: 30%;">Pressure
+                                        </td>
+                                        <td class="is-vcentered" style="width: 60%;">
+                                            ${_station.getLatestPressure()} hPa
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
