@@ -17,12 +17,12 @@ such as Trends, Date/Time stamp, All Stations Summary, Delete Support, Cloud Dep
 
 - All features from Release 2
 - New Features:
-  1. Trends
-  2. Date/Time Stamp on Each Reading
-  3. All Stations Summary
-  4. Station/Reading Delete Support
-  5. Deployed to the Cloud
-  6. Members Can Edit Their Personal Details
+    1. Trends
+    2. Date/Time Stamp on Each Reading
+    3. All Stations Summary
+    4. Station/Reading Delete Support
+    5. Deployed to the Cloud
+    6. Members Can Edit Their Personal Details
 
 ### Trends
 

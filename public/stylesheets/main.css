@@ -26,10 +26,14 @@
 }
 
 .notification {
-    margin-top:5px;
+    margin-top: 5px;
 }
 
 .card-header {
+    border-top: 1px solid rgba(34, 36, 38, .1);
+}
+
+.has-thin-border-bottom {
     border-bottom: 1px solid rgba(34, 36, 38, .1);
 }
 
