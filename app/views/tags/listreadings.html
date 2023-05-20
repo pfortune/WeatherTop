@@ -30,7 +30,8 @@
             ${utils.Conversion.calculateWindChill(reading.temperature, reading.windSpeed)} °C
         </td>
         <td>
-            <span title="${utils.Conversion.windDirectionToCompass(reading.windDirection)}">${reading.windDirection}</span>
+            ${reading.windDirection} °<br>
+            ${utils.Conversion.windDirectionToCompass(reading.windDirection)}
         </td>
         <td>
             ${reading.pressure}
