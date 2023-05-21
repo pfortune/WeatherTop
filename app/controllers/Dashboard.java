@@ -70,7 +70,7 @@ public class Dashboard extends Controller {
       User user = AuthController.getLoggedInUser();
       if (user == null) {
         flash("error", "You do not have permission to add a station");
-        redirect("/dashboard");
+        redirect("/login");
       } else {
         Station station = new Station(title, latitude, longitude);
         user.stations.add(station);
