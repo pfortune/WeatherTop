@@ -50,20 +50,25 @@ public class StationController extends Controller {
    * @param windDirection The wind direction of the reading.
    */
   public static void addReading(Long id, int code, double temperature, double windSpeed, int pressure, int windDirection) {
-    Station station = Station.findById(id);
-    if (station != null) {
-      if (code == 0 || temperature == 0.0 || windSpeed == 0.0 || pressure == 0 || windDirection == 0) {
-        flash("error", "Reading fields cannot be empty");
+    User user = AuthController.getLoggedInUser();
+    if(user != null) {
+      Station station = Station.findById(id);
+      if (station != null) {
+        if (code == 0 || temperature == 0.0 || windSpeed == 0.0 || pressure == 0 || windDirection == 0) {
+          flash("error", "Reading fields cannot be empty");
+        } else {
+          Reading reading = new Reading(code, temperature, windSpeed, pressure, windDirection);
+          station.readings.add(reading);
+          station.save();
+          flash("success", "Reading added successfully");
+        }
       } else {
-        Reading reading = new Reading(code, temperature, windSpeed, pressure, windDirection);
-        station.readings.add(reading);
-        station.save();
-        flash("success", "Reading added successfully");
+        flash("error", "Station not found");
       }
+      redirect("/station/" + id);
     } else {
-      flash("error", "Station not found");
+      redirect("/login");
     }
-    redirect("/station/" + id);
   }
 
   /**
@@ -72,22 +77,27 @@ public class StationController extends Controller {
    * @param readingid The id of the reading to delete.
    */
   public static void deleteReading(Long id, Long readingid) {
-    Logger.info("Deleting " + readingid);
-    Station station = Station.findById(id);
-    Reading reading = Reading.findById(readingid);
-    if (station != null) {
-      if (reading != null) {
-        station.readings.remove(reading);
-        station.save();
-        reading.delete();
-        flash("success", "Reading deleted successfully");
+    User user = AuthController.getLoggedInUser();
+    if (user != null) {
+      Logger.info("Deleting " + readingid);
+      Station station = Station.findById(id);
+      Reading reading = Reading.findById(readingid);
+      if (station != null) {
+        if (reading != null) {
+          station.readings.remove(reading);
+          station.save();
+          reading.delete();
+          flash("success", "Reading deleted successfully");
+        } else {
+          flash("error", "Reading not found");
+        }
       } else {
-        flash("error", "Reading not found");
+        flash("error", "Station not found");
       }
+      redirect("/station/" + id);
     } else {
-      flash("error", "Station not found");
+      redirect("/login");
     }
-    redirect("/station/" + id);
   }
 
 }
