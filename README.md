@@ -1,12 +1,5 @@
 # WeatherTop Release 3
 
-Live Web App: [https://weathertop.ie](https://weathertop.ie)
-
-## Test Account Details
-
-Email: homer@simpson.com
-Password: Secret123
-
 ## Introduction
 
 WeatherTop Release 3 is the fifth and final version of the WeatherTop web companion application designed for WeatherTop
